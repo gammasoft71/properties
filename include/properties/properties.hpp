@@ -125,15 +125,15 @@ namespace properties {
   /// class person {
   /// public:
   ///   person() {}
-  ///   person(const person& p) : name(p.name) {}
+  ///   person(const person& p) : name_(p.name_) {}
   ///
-  ///   property<std::string> Name {
-  ///     property_get {return this->name},
-  ///     property_set {std::transform(value.begin(), value.end(), std::back_inserter(this->name), ::toupper);}
+  ///   property<std::string> name {
+  ///     property_get {return this->name_},
+  ///     property_set {std::transform(value.begin(), value.end(), std::back_inserter(this->name_), ::toupper);}
   ///   };
   ///
   /// private:
-  ///   std::string name;
+  ///   std::string name_;
   /// };
   /// @endcode
   /// @ingroup Keywords
@@ -146,15 +146,15 @@ namespace properties {
   /// class person {
   /// public:
   ///   person() {}
-  ///   person(const person& p) : name(p.name) {}
+  ///   person(const person& p) : name_(p.name_) {}
   ///
-  ///   property<std::string> Name {
-  ///     property_get {return this->name},
-  ///     property_set {std::transform(value.begin(), value.end(), std::back_inserter(this->name), ::toupper);}
+  ///   property<std::string> name {
+  ///     property_get {return this->name_},
+  ///     property_set {std::transform(value.begin(), value.end(), std::back_inserter(this->name_), ::toupper);}
   ///   };
   ///
   /// private:
-  ///   std::string name;
+  ///   std::string name_;
   /// };
   /// @endcode
   /// @ingroup Keywords
