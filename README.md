@@ -3,7 +3,7 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/v7q0cn0kocokvpoa?svg=true)](https://ci.appveyor.com/project/yfiumefreddo/properties)
 [![codecov](https://codecov.io/gh/yfiumefreddo/properties/branch/master/graph/badge.svg)](https://codecov.io/gh/yfiumefreddo/properties)
 [![license GPL v3](https://img.shields.io/badge/license-GPL%20v3-004080.svg)](LICENSE.md) 
-[![© Yves Fiumefreddo](https://img.shields.io/badge/©-Yves%20Fiumefreddo-004080.svg)](https://yfiumefreddo.wixsite.com/aboutme) 
+[![© GAMMA Soft](https://img.shields.io/badge/©-GAMMA%20Soft-004080.svg)](https://gammasoft71.wixsite.com/gammasoft) 
 [![std c++14](https://img.shields.io/badge/std-c++14-004080.svg)](https://cppreference.com) 
 [![os Windows, macOS, linux](https://img.shields.io/badge/os-Windows,%20macOS,%20linux-004080.svg)](.)
 [![Try online](https://img.shields.io/badge/try-online-004080.svg)](https://wandbox.org/permlink/vAG6uvDfTeYS8M4z)
