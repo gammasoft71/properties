@@ -1,69 +1,55 @@
 language: cpp
 dist: trusty
-
-# 1. make sure travis client installed : https://github.com/travis-ci/travis.rb#installation
-# 2. generate new token repo_public in github
-# 3. add the 3 following lines with the command :
-#      echo GH_TOKEN=token_generated_by_github | travis encrypt --add
 env:
   global:
-    - secure: GElPsvm52XhOLps6y+q3icvhYZDPLE7U8SJPpFvWDnTPKm7luj4EaHyMHIjG8pNP9HUstt/3IvXL7uoghVupPFi5BO9EDfyDpsDqVQqPQCla3FxM0iOdrw3Qmw3b0LKQ/fTBoUpcX4iedt/YlJVRy5+6h0WnW4il64y9MQhjAy/a7UM86XtF/phROq6wvs3uFvWCc3Lx49kE6T9XvD/TQVBgvDHSs5kawb55hAwZt8cp6cGvGrQQydJKLi9gg9ZP+9ts79emQjjSonJCkFGK9USqyek3i7xrPmjMFOMCB2M0Uh0ChXjVT3iegPvJhNWM3IEICmvqSrSVNGdXzvX5Oo24hd7jxXZNahiil4m9OYo4JaIzHodbvmM7q98rZVS0S1VjXQ6nUOAe2Z0hr4EXe2Qi3PTycsUeYLtb8frilPqsvqjTXoy+CSVAkAzHXYKZILap/YRreTNhR3I8sJEPhMrzy9mWHvQkQ+xSA0hYi6BnGUZ+NGpruvNkFp1cAxE244Cvj8QCBfadbUTTOYatg+TxKl2auIXCA92WwF0vpee/cn8Vb9ny6YtvnticX/V6h79aO9DrFrO1RCah4Czq/ZjARCPeS+56oi1/YFDeUR76/sp9vUIQRqXW8vN/3wkNKsuKr5E/gkWp9L7D/usOUCGXksNmCHfNNt0ubEsh7wM=
-
+  - secure: oUz4G1tvGWI7W91aJnCA2+JQuYYjdbRxbNpefkdxskZD9tJjT+NjjbZjWjXJxThJNr4t7bPTl6Q3hgtiOeAcRBo0pUKGDlEN3CPcfGIyvdkZSv8ZhdrMBsxJiG/BRBzoh3yVy1Tbkbbe/0mrQhZ0ZbCwLdFZbqDLj+dQRAvlER+kgxwZw8pKrbrEnMt9tK7UHAALkrAV3xFVtDwO1tsVWLgOAiw8FPNnR0QDJfOxok/UmRmRfU5i1Kfpz9KReGGecLRsgYhmxpAm9IiwVecTE3RcUHV3+eVJlwtFEf2dKaga26ApSiDs68NIWqm4RczvGyVk/DZGvQPFRF0LkglwkOeV1BXmja62C3bPpmdvBERdz+tltbtszxURQjtyL+7Egf99x1bwdljlQg1H6MX8QSvraN64ykXr+30quhfV7XWXYOOMKymSjjesbKB5RSL+3pUkzzNrYu2JAQHp9LWT3RMDy4Sd6Xre3krGZ9MCoUFbNvC8c9WO4D9QB8FK+WxlScLagkvHtWd3os0Ory2XPFmOzVxlTjgtRxg4mm6jCB0XFKQwtEcKHnwZQE2hE5BHpfcNlq3RIVy9KiiEvkaKcNbpYJDNuZOBfYIyOCSniI7a3tGcAEuYcHSQVNagtj8afR2UHYFJVgojcrmCMNXQ+M+XBnL5whoQ+YZtttC3xM0=
 addons:
   apt:
     sources:
-      - ubuntu-toolchain-r-test
+    - ubuntu-toolchain-r-test
     packages:
-      - g++-6
-      - gcc-6
-      - doxygen
-      - valgrind
-
-#before_script: scripts/travis/install_cmake.sh
+    - g++-6
+    - gcc-6
+    - doxygen
+    - valgrind
 before_script:
-  - mkdir -p build
-  - cd build
-  - |
-    if [[ "${TRAVIS_OS_NAME}" == "linux" ]]; then
-      mkdir -p external/cmake
-      pushd external/cmake
-      wget https://cmake.org/files/v3.8/cmake-3.8.0-Linux-x86_64.sh
-      chmod +x cmake-*-Linux-x86_64.sh
-      ./cmake-*-Linux-x86_64.sh --exclude-subdir --skip-license
-      export PATH="${PWD}/bin:$PATH"
-      popd
-    else
-      if ! brew ls --version cmake &>/dev/null; then brew update; brew install cmake; fi
-    fi
-  - cd ..
-
+- mkdir -p build
+- cd build
+- |
+  if [[ "${TRAVIS_OS_NAME}" == "linux" ]]; then
+    mkdir -p external/cmake
+    pushd external/cmake
+    wget https://cmake.org/files/v3.8/cmake-3.8.0-Linux-x86_64.sh
+    chmod +x cmake-*-Linux-x86_64.sh
+    ./cmake-*-Linux-x86_64.sh --exclude-subdir --skip-license
+    export PATH="${PWD}/bin:$PATH"
+    popd
+  else
+    if ! brew ls --version cmake &>/dev/null; then brew update; brew install cmake; fi
+  fi
+- cd ..
 matrix:
-  include:  
-    - env: TEST="Xcode 8.3 build, run unittests and publish to codecov"
-      os: osx
-      cache: ccache
-      osx_image: xcode9.1
-      script: scripts/travis/build_xcode.sh
-      after_success: scripts/travis/publish_to_codecov.sh
-
-    - env: TEST="g++6 build and run unittests"
-      os: linux
-      cache: ccache
-      script: scripts/travis/build_gcc.sh
-
-    - env: TEST="Git check"
-      os: linux
-      script: scripts/travis/git_check.sh
- 
-    - env: TEST="cppcheck analyse"
-      os: linux
-      script: scripts/travis/cppcheck_analyse.sh
-
-    - env: TEST="AStyle format"
-      os: linux
-      script: scripts/travis/astyle_format.sh
-
-    - env: TEST="Generate reference guide and publish on git properties-doc"
-      os: osx
-      osx_image: xcode9.1
-      script: scripts/travis/generate_reference_guide.sh
+  include:
+  - env: TEST="Xcode 8.3 build, run unittests and publish to codecov"
+    os: osx
+    cache: ccache
+    osx_image: xcode9.1
+    script: scripts/travis/build_xcode.sh
+    after_success: scripts/travis/publish_to_codecov.sh
+  - env: TEST="g++6 build and run unittests"
+    os: linux
+    cache: ccache
+    script: scripts/travis/build_gcc.sh
+  - env: TEST="Git check"
+    os: linux
+    script: scripts/travis/git_check.sh
+  - env: TEST="cppcheck analyse"
+    os: linux
+    script: scripts/travis/cppcheck_analyse.sh
+  - env: TEST="AStyle format"
+    os: linux
+    script: scripts/travis/astyle_format.sh
+  - env: TEST="Generate reference guide and publish on git properties-doc"
+    os: osx
+    osx_image: xcode9.1
+    script: scripts/travis/generate_reference_guide.sh
