@@ -42,7 +42,7 @@ matrix:
     - env: TEST="Xcode 8.3 build, run unittests and publish to codecov"
       os: osx
       cache: ccache
-      osx_image: xcode8.3
+      osx_image: xcode9.1
       script: scripts/travis/build_xcode.sh
       after_success: scripts/travis/publish_to_codecov.sh
 
@@ -64,5 +64,6 @@ matrix:
       script: scripts/travis/astyle_format.sh
 
     - env: TEST="Generate reference guide and publish on git properties-doc"
-      os: linux
+      os: osx
+      osx_image: xcode9.1
       script: scripts/travis/generate_reference_guide.sh

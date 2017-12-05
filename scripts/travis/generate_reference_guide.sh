@@ -2,6 +2,9 @@
 
 set -ev
 
+brew update
+brew install doxygen
+
 # setup git
 git config --global user.email "gammasoft71@gmail.com"
 git config --global user.name "gammasoft71"
@@ -12,7 +15,7 @@ git clone https://github.com/gammasoft71/properties-doc.git build/reference_guid
 
 # generate documentation
 cd build
-cmake .. -DCMAKE_BUILD_TYPE=Release -DBUILD_EXAMPLES=OFF -DBUILD_TESTS=OFF -DENABLE_COVERAGE=OFF -DCMAKE_CXX_COMPILER="g++-6"
+cmake .. -DCMAKE_BUILD_TYPE=Release -DBUILD_EXAMPLES=OFF -DBUILD_TESTS=OFF -DENABLE_COVERAGE=OFF
 cmake --build . --target properties.reference_guide -- -j8
 cd ..
 
