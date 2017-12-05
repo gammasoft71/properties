@@ -1,0 +1,8 @@
+# build files
+build
+
+# macOS files
+.DS_Store
+
+# CLion files
+.idea

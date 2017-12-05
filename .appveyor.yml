@@ -1,0 +1,10 @@
+version: 1.0.1.{build}
+image: Visual Studio 2017
+environment:
+  matrix:
+  - BUILD_WIN32: true
+  - BUILD_WIN64: true
+build_script:
+  - cmd: scripts\appveyor\build_vs2017.bat
+test_script:
+  - cmd: scripts\appveyor\test.bat

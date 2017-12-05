@@ -1,0 +1,3 @@
+uninitMemberVar:@CMAKE_SOURCE_DIR@/examples/point/point.cpp:14
+uninitMemberVar:@CMAKE_SOURCE_DIR@/tests/unittests/properties_readonly.cpp:46
+uninitMemberVar:@CMAKE_SOURCE_DIR@/tests/unittests/properties_writeonly.cpp:40
