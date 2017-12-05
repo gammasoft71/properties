@@ -3,12 +3,12 @@
 set -ev
 
 # setup git
-git config --global user.email "y_fiumefreddo@hotmail.com"
-git config --global user.name "yfiumefereddo"
+git config --global user.email "gammasoft71@gmail.com"
+git config --global user.name "gammasoft71"
 
 # Clone properties-doc
 if [ -d "build/reference_guide" ]; then rm -r -f build/reference_guide; fi
-git clone https://github.com/yfiumefreddo/properties-doc.git build/reference_guide
+git clone https://github.com/gammasoft71/properties-doc.git build/reference_guide
 
 # generate documentation
 cd build
@@ -29,5 +29,5 @@ cd build/reference_guide
 if [[ -e doxygen_warnings.txt ]]; then rm doxygen_warnings.txt; fi
 git add --all
 git commit -m "Generate Reference Guide [$TRAVIS_BUILD_NUMBER]"
-git push "https://${GH_TOKEN}@github.com/yfiumefreddo/properties-doc.git" master > /dev/null 2>&1 
+git push "https://${GH_TOKEN}@github.com/gammasoft71/properties-doc.git" master > /dev/null 2>&1
 cd ../..
