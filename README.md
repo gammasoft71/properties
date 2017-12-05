@@ -30,7 +30,7 @@ public:
   
   property<int> number {
     property_get {return this->number_;},
-    property_set {this->number = value;}
+    property_set {this->number_ = value;}
   };
   
   ...
@@ -70,7 +70,7 @@ public:
   ...
   
   property<int, writeonly> number {
-    property_set {this->number = value;}
+    property_set {this->number_ = value;}
   };
   
   ...
