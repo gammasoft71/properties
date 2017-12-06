@@ -162,5 +162,3 @@ You can try and play this example [here](https://wandbox.org/permlink/vAG6uvDfTe
 For more examples see [examples](examples).
 
 See the online [Reference guide](https://gammasoft71.github.io/properties-doc/).
-
-
