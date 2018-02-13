@@ -125,8 +125,8 @@ namespace properties {
   /// @include person.cpp
   /// @ingroup Keywords
 #define property_ \
-property_
-
+  property_
+  
   /// @brief The #get_ keyword defines an accessor method in a property_ or indexer that retrieves the value of the property_ or the indexer element.
   /// @par Examples
   /// @code
