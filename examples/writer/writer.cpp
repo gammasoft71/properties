@@ -5,70 +5,70 @@
 
 using namespace properties;
 
-class writer {
+class Writer {
 public:
-  ~writer() {}
-  virtual void write(const std::string& s) = 0;
-  virtual void write_line(const std::string& s) = 0;
+  virtual ~Writer() {}
+  virtual void Write(const std::string& string) = 0;
+  virtual void WriteLine(const std::string& string) = 0;
 };
 
-class console_writer : public writer {
+class ConsoleWriter : public Writer {
 public:
-  void write(const std::string& s) override {
-    std::cout << s;
+  void Write(const std::string& string) override {
+    std::cout << string;
   }
   
-  void write_line(const std::string& s) override {
-    write(s);
+  void WriteLine(const std::string& string) override {
+    this->Write(string);
     std::cout << std::endl;
   }
 };
 
-class test_writer {
+class TestWriter {
 public:
-  test_writer() = default;
+  TestWriter() = default;
   
-  property<std::shared_ptr<::writer>, writeonly> writer {
-    property_set {
-      this->writer_ = value;
-      this->writer_->write_line("set new writer...");
+  property_<std::shared_ptr<::Writer>, writeonly_> Writer {
+    set_ {
+      this->writer = value;
+      this->writer->WriteLine("set new Writer...");
     }
   };
   
-  void do_something() {
-    if(this->writer_ != nullptr)
-      this->writer_->write_line("do_something...");
+  void DoSomething() {
+    if(this->writer != nullptr)
+      this->writer->WriteLine("DoSomething...");
   }
   
-  void do_otherthing() {
-    if(this->writer_ != nullptr)
-      this->writer_->write_line("do_otherthing...");
+  void DoOtherthing() {
+    if(this->writer != nullptr)
+      this->writer->WriteLine("DoOtherthing...");
   }
   
 private:
-  std::shared_ptr<::writer> writer_;
+  std::shared_ptr<::Writer> writer;
 };
 
 int main(int argc, char* argv[]) {
-  test_writer tw;
+  TestWriter testWriter;
   
-  std::cout << "test_writer without writer :" << std::endl;
-  tw.do_something();
-  tw.do_otherthing();
+  std::cout << "TestWriter without Writer :" << std::endl;
+  testWriter.DoSomething();
+  testWriter.DoOtherthing();
   std::cout << std::endl;
   
-  std::cout << "test_writer with console_writer :" << std::endl;
-  tw.writer = std::make_shared<console_writer>();
-  tw.do_something();
-  tw.do_otherthing();
+  std::cout << "TestWriter with ConsoleWriter :" << std::endl;
+  testWriter.Writer = std::make_shared<ConsoleWriter>();
+  testWriter.DoSomething();
+  testWriter.DoOtherthing();
   std::cout << std::endl;
 }
 
 // This code produces the following output :
 //
-// test_writer without writer :
+// TestWriter without Writer :
 //
-// test_writer with console_writer :
-// set new writer...
-// do_something...
-// do_otherthing...
+// TestWriter with ConsoleWriter :
+// set new Writer...
+// DoSomething...
+// DoOtherthing...

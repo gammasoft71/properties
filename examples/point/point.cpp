@@ -4,46 +4,46 @@
 
 using namespace properties;
 
-class point {
+class Point {
 public:
-  point() = default;
-  point(int x, int y) : x_(x), y_(y) {}
+  Point() = default;
+  Point(int X, int Y) : x(X), y(Y) {}
   
-  // Must be specified because the copy contructor of property class is deleted.
+  // Must be specified because the copy contructor of property_ class is deleted.
   // The implicit or default copy constructor is not suffisant.
-  point(const point& p) : x_(p.x_), y_(p.y_) {}
+  Point(const Point& point) : x(point.x), y(point.y) {}
   
-  point& operator=(const point& p) = default;
+  Point& operator=(const Point& point) = default;
   
-  // Declare a x property of type int:
-  property<int, readonly> x {
-    property_get {return this->x_;}
+  // Declare a X property of type int:
+  property_<int, readonly_> X {
+    get_ {return this->x;}
   };
   
-  // Declare a x property of type int:
-  property<int, readonly> y {
-    property_get {return this->y_;}
+  // Declare a Y property of type int:
+  property_<int, readonly_> Y {
+    get_ {return this->y;}
   };
   
-  friend std::ostream& operator<<(std::ostream& os, const point& p) {return os << "[x = " << p.x << ", y = " << p.y << "]";}
+  friend std::ostream& operator<<(std::ostream& os, const Point& point) {return os << "[X = " << point.X << ", Y = " << point.Y << "]";}
   
 private:
-  int x_ = 0;
-  int y_ = 0;
+  int x = 0;
+  int y = 0;
 };
 
 int main(int argc, char* argv[]) {
-  point p1 {12, 24};
+  Point p1 {12, 24};
   std::cout << "p1 = " << p1 << std::endl;
   
-  point p2 = p1;
-  std::cout << "p2.x = " << p2.x << std::endl;
-  std::cout << "p2.y = " << p2.y << std::endl;
+  Point p2 = p1;
+  std::cout << "p2.X = " << p2.X << std::endl;
+  std::cout << "p2.Y = " << p2.Y << std::endl;
   
 }
 
 // This code produces the following output :
 //
-// p1 = [x = 12, y = 24]
-// p2.x = 12
-// p2.y = 24
+// p1 = [X = 12, Y = 24]
+// p2.X = 12
+// p2.Y = 24

@@ -6,9 +6,9 @@ using namespace properties;
 
 TEST_CASE("GIVEN Create readwrite property THEN get it with implicit cast operator") {
   int v = 42;
-  property<int> Value {
-    property_get {return v;},
-    property_set {v = value;}
+  property_<int> Value {
+    get_ {return v;},
+    set_ {v = value;}
   };
   
   REQUIRE(v == 42);
@@ -17,9 +17,9 @@ TEST_CASE("GIVEN Create readwrite property THEN get it with implicit cast operat
 
 TEST_CASE("GIVEN Create readwrite property THEN get it with fucntor") {
   int v = 42;
-  property<int> Value {
-    property_get {return v;},
-    property_set {v = value;}
+  property_<int> Value {
+    get_ {return v;},
+    set_ {v = value;}
   };
   
   REQUIRE(v == 42);
@@ -28,9 +28,9 @@ TEST_CASE("GIVEN Create readwrite property THEN get it with fucntor") {
 
 TEST_CASE("GIVEN Create readwrite property THEN get it with get method") {
   int v = 42;
-  property<int> Value {
-    property_get {return v;},
-    property_set {v = value;}
+  property_<int> Value {
+    get_ {return v;},
+    set_ {v = value;}
   };
   
   REQUIRE(v == 42);
@@ -39,9 +39,9 @@ TEST_CASE("GIVEN Create readwrite property THEN get it with get method") {
 
 TEST_CASE("GIVEN Create readwrite property THEN check inequality operator") {
   int v = 42;
-  property<int> Value {
-    property_get {return v;},
-    property_set {v = value;}
+  property_<int> Value {
+    get_ {return v;},
+    set_ {v = value;}
   };
   
   REQUIRE(v != 84);
@@ -50,9 +50,9 @@ TEST_CASE("GIVEN Create readwrite property THEN check inequality operator") {
 
 TEST_CASE("GIVEN Create readwrite property WHEN set it THEN get it") {
   int v = 42;
-  property<int> Value {
-    property_get {return v;},
-    property_set {v = value;}
+  property_<int> Value {
+    get_ {return v;},
+    set_ {v = value;}
   };
   
   Value = 24;
@@ -67,37 +67,37 @@ TEST_CASE("GIVEN Create readwrite property WHEN set it THEN get it") {
 }
 
 namespace {
-  class property_read_write {
+  class PropertyReadWrite {
   public:
-    property_read_write() {}
-    property_read_write(const property_read_write& prw) : name_(prw.name_) {}
-    property_read_write& operator=(const property_read_write&) = default;
+    PropertyReadWrite() {}
+    PropertyReadWrite(const PropertyReadWrite& prw) : name(prw.name) {}
+    PropertyReadWrite& operator=(const PropertyReadWrite&) = default;
     
-    property<std::string> name {
-      property_get {return this->name_;},
-      property_set {this->name_ = value;}
+    property_<std::string> Name {
+      get_ {return this->name;},
+      set_ {this->name = value;}
     };
     
   private:
-    std::string name_ = "Test property";
+    std::string name = "Test property";
   };
 }
 
-TEST_CASE("GIVEN Create readwrite property WHEN using copy constructor THEN check property was not copied") {
-  std::shared_ptr<property_read_write> property_read_write1 = std::make_shared<property_read_write>();
-  std::shared_ptr<property_read_write> property_read_write2 = std::make_shared<property_read_write>(*property_read_write1);
-  property_read_write1 = nullptr;
-  REQUIRE(property_read_write2->name == "Test property");
-  property_read_write2->name = "Other thing";
-  REQUIRE(property_read_write2->name == "Other thing");
+TEST_CASE("GIVEN Create readwrite property WHEN using copy constructor THEN check property_ was not copied") {
+  std::shared_ptr<PropertyReadWrite> propertyReadWrite1 = std::make_shared<PropertyReadWrite>();
+  std::shared_ptr<PropertyReadWrite> propertyReadWrite2 = std::make_shared<PropertyReadWrite>(*propertyReadWrite1);
+  propertyReadWrite1 = nullptr;
+  REQUIRE(propertyReadWrite2->Name == "Test property");
+  propertyReadWrite2->Name = "Other thing";
+  REQUIRE(propertyReadWrite2->Name == "Other thing");
 }
 
-TEST_CASE("GIVEN Create readwrite property WHEN using copy opearotor THEN check property was not copied") {
-  std::shared_ptr<property_read_write> property_read_write1 = std::make_shared<property_read_write>();
-  std::shared_ptr<property_read_write> property_read_write2 = std::make_shared<property_read_write>();
-  *property_read_write2 = *property_read_write1;
-  property_read_write1 = nullptr;
-  REQUIRE(property_read_write2->name == "Test property");
-  property_read_write2->name = "Other thing";
-  REQUIRE(property_read_write2->name == "Other thing");
+TEST_CASE("GIVEN Create readwrite property WHEN using copy opearotor THEN check property_ was not copied") {
+  std::shared_ptr<PropertyReadWrite> propertyReadWrite1 = std::make_shared<PropertyReadWrite>();
+  std::shared_ptr<PropertyReadWrite> propertyReadWrite2 = std::make_shared<PropertyReadWrite>();
+  *propertyReadWrite2 = *propertyReadWrite1;
+  propertyReadWrite1 = nullptr;
+  REQUIRE(propertyReadWrite2->Name == "Test property");
+  propertyReadWrite2->Name = "Other thing";
+  REQUIRE(propertyReadWrite2->Name == "Other thing");
 }

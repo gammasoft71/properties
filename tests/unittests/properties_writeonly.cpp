@@ -5,8 +5,8 @@ using namespace properties;
 
 TEST_CASE("GIVEN create writeonly property WHEN Set with equal operator then THEN check value") {
   int v = 42;
-  property<int, writeonly> Value {
-    property_set {v = value;}
+  property_<int, writeonly_> Value {
+    set_ {v = value;}
   };
   
   Value = 24;
@@ -15,8 +15,8 @@ TEST_CASE("GIVEN create writeonly property WHEN Set with equal operator then THE
 
 TEST_CASE("GIVEN create writeonly property WHEN Set with functor then THEN check value") {
   int v = 42;
-  property<int, writeonly> Value {
-    property_set {v = value;}
+  property_<int, writeonly_> Value {
+    set_ {v = value;}
   };
   
   Value(24);
@@ -25,8 +25,8 @@ TEST_CASE("GIVEN create writeonly property WHEN Set with functor then THEN check
 
 TEST_CASE("GIVEN create writeonly property WHEN Set with set method then THEN check value") {
   int v = 42;
-  property<int, writeonly> Value {
-    property_set {v = value;}
+  property_<int, writeonly_> Value {
+    set_ {v = value;}
   };
   
   Value.set(24);
@@ -34,35 +34,35 @@ TEST_CASE("GIVEN create writeonly property WHEN Set with set method then THEN ch
 }
 
 namespace {
-  class property_write_only {
+  class PropertyWriteOnly {
   public:
-    property_write_only() {}
-    property_write_only(const property_write_only& prw) : name_(prw.name_) {}
-    property_write_only& operator=(const property_write_only& prw) = default;
+    PropertyWriteOnly() {}
+    PropertyWriteOnly(const PropertyWriteOnly& prw) : name(prw.name) {}
+    PropertyWriteOnly& operator=(const PropertyWriteOnly& prw) = default;
     
-    property<std::string, writeonly> name {
-      property_set {this->name_ = value;}
+    property_<std::string, writeonly_> Name {
+      set_ {this->name = value;}
     };
     
-    std::string name_ = "Test property";
+    std::string name = "Test property";
   };
 }
 
-TEST_CASE("GIVEN Create writeonly property WHEN using copy constructor THEN check property was not copied") {
-  std::shared_ptr<property_write_only> property_write_write1 = std::make_shared<property_write_only>();
-  std::shared_ptr<property_write_only> property_write_write2 = std::make_shared<property_write_only>(*property_write_write1);
-  property_write_write1 = nullptr;
-  REQUIRE(property_write_write2->name_ == "Test property");
-  property_write_write2->name = "Other thing";
-  REQUIRE(property_write_write2->name_ == "Other thing");
+TEST_CASE("GIVEN Create writeonly property WHEN using copy constructor THEN check property_ was not copied") {
+  std::shared_ptr<PropertyWriteOnly> propertyWriteOnly1 = std::make_shared<PropertyWriteOnly>();
+  std::shared_ptr<PropertyWriteOnly> propertyWriteOnly2 = std::make_shared<PropertyWriteOnly>(*propertyWriteOnly1);
+  propertyWriteOnly1 = nullptr;
+  REQUIRE(propertyWriteOnly2->name == "Test property");
+  propertyWriteOnly2->Name = "Other thing";
+  REQUIRE(propertyWriteOnly2->name == "Other thing");
 }
 
-TEST_CASE("GIVEN Create writeonly property WHEN using copy opearotor THEN check property was not copied") {
-  std::shared_ptr<property_write_only> property_write_write1 = std::make_shared<property_write_only>();
-  std::shared_ptr<property_write_only> property_write_write2 = std::make_shared<property_write_only>();
-  *property_write_write2 = *property_write_write1;
-  property_write_write1 = nullptr;
-  REQUIRE(property_write_write2->name_ == "Test property");
-  property_write_write2->name = "Other thing";
-  REQUIRE(property_write_write2->name_ == "Other thing");
+TEST_CASE("GIVEN Create writeonly property WHEN using copy opearotor THEN check property_ was not copied") {
+  std::shared_ptr<PropertyWriteOnly> propertyWriteOnly1 = std::make_shared<PropertyWriteOnly>();
+  std::shared_ptr<PropertyWriteOnly> propertyWriteOnly2 = std::make_shared<PropertyWriteOnly>();
+  *propertyWriteOnly2 = *propertyWriteOnly1;
+  propertyWriteOnly1 = nullptr;
+  REQUIRE(propertyWriteOnly2->name == "Test property");
+  propertyWriteOnly2->Name = "Other thing";
+  REQUIRE(propertyWriteOnly2->name == "Other thing");
 }

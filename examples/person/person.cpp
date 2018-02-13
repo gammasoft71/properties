@@ -4,57 +4,57 @@
 
 using namespace properties;
 
-class person {
+class Person {
 public:
-  person() = default;
+  Person() = default;
   
-  // Must be specified because the copy contructor of property class is deleted.
+  // Must be specified because the copy contructor of property_ class is deleted.
   // The implicit or default copy constructor is not suffisant.
-  person(const person& pers) : name_(pers.name_), age_(pers.age_) {}
+  Person(const Person& person) : name(person.name), age(person.age) {}
   
-  person& operator=(const person& pers) = default;
+  Person& operator=(const Person& person) = default;
   
-  // Declare a name property of type std::string:
-  property<std::string> name {
-    property_get {return this->name_;},
-    property_set {this->name_ = value;}
+  // Declare a Name property of type std::string:
+  property_<std::string> Name {
+    get_ {return this->name;},
+    set_ {this->name = value;}
   };
   
-  // Declare an age property of type int:
-  property<int> age {
-    property_get {return this->age_;},
-    property_set {this->age_ = value;}
+  // Declare an Age property of type int:
+  property_<int> Age {
+    get_ {return this->age;},
+    set_ {this->age = value;}
   };
   
-  friend std::ostream& operator<<(std::ostream& os, const person& pers) {return os << "name = " << pers.name << ", age = " << pers.age;}
+  friend std::ostream& operator<<(std::ostream& os, const Person& person) {return os << "Name = " << person.Name << ", Age = " << person.Age;}
   
 private:
-  std::string name_ = "N/A";
-  int age_ = 0;
+  std::string name = "N/A";
+  int age = 0;
 };
 
 int main(int argc, char* argv[]) {
   std::cout << "Simple Properties" << std::endl;
   
   // Create a new Person object:
-  person pers;
+  Person person;
   
-  // Print out the name and the age associated with the pers:
-  std::cout << "person details - " << pers << std::endl;
+  // Print out the Name and the Age associated with the person:
+  std::cout << "Person details - " << person << std::endl;
   
-  // Set some values on the pers object:
-  pers.name = "Joe";
-  pers.age = 99;
-  std::cout << "person details - " << pers << std::endl;
+  // Set some values on the person object:
+  person.Name = "Joe";
+  person.Age = 99;
+  std::cout << "Person details - " << person << std::endl;
   
   // Increment the Age property:
-  pers.age += 1;
-  std::cout << "person details - " << pers << std::endl;
+  person.Age += 1;
+  std::cout << "Person details - " << person << std::endl;
 }
 
 // This code produces the following output :
 //
 // Simple Properties
-// person details - name = N/A, age = 0
-// person details - name = Joe, age = 99
-// person details - name = Joe, age = 100
+// Person details - Name = N/A, Age = 0
+// Person details - Name = Joe, Age = 99
+// Person details - Name = Joe, Age = 100

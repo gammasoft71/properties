@@ -6,7 +6,7 @@
 [![© GAMMA Soft](https://img.shields.io/badge/©-GAMMA%20Soft-004080.svg)](https://gammasoft71.wixsite.com/gammasoft) 
 [![std c++14](https://img.shields.io/badge/std-c++14-004080.svg)](https://cppreference.com) 
 [![os Windows, macOS, linux](https://img.shields.io/badge/os-Windows,%20macOS,%20linux-004080.svg)](.)
-[![Try online](https://img.shields.io/badge/try-online-004080.svg)](https://wandbox.org/permlink/vAG6uvDfTeYS8M4z)
+[![Try online](https://img.shields.io/badge/try-online-004080.svg)](https://wandbox.org/permlink/BVxsGLBVCcNoTECH)
 
 # properties
 
@@ -24,19 +24,19 @@ A property is a member that provides a flexible mechanism to read, write, or com
 The property accessor can be read and write.
 
 ```c++
-class foo {
+class Foo {
 public:
-  ...
+  //...
   
-  property<int> number {
-    property_get {return this->number_;},
-    property_set {this->number_ = value;}
+  property_<int> Number {
+    get_ {return this->number;},
+    set_ {this->number = value;}
   };
   
-  ...
+  //...
   
 private:
-  int number_ = 0;
+  int number = 0;
 };
 ```
 
@@ -45,18 +45,18 @@ private:
 The property accessor can be read only.
 
 ```c++
-class foo {
+class Foo {
 public:
-  ...
+  //...
   
-  property<int, readonly> number {
-    property_get {return this->number_;}
+  property_<int, readonly_> Number {
+    get_ {return this->number;}
   };
   
-  ...
+  //...
   
 private:
-  int number_ = 0;
+  int number = 0;
 };
 ```
 
@@ -65,18 +65,18 @@ private:
 The property accessor can be write only.
 
 ```c++
-class foo {
+class Foo {
 public:
-  ...
+  //...
   
-  property<int, writeonly> number {
-    property_set {this->number_ = value;}
+  property_<int, writeonly_> Number {
+    set_ {this->number = value;}
   };
   
-  ...
+  //...
   
 private:
-  int number_ = 0;
+  int number = 0;
 };
 ```
 
@@ -91,50 +91,50 @@ person.cpp:
 
 using namespace properties;
 
-class person {
+class Person {
 public:
-  person() = default;
+  Person() = default;
 
   // Must be specified because the copy contructor of property class is deleted.
   // The implicit or default copy constructor is not suffisant.
-  person(const person& pers) : name_(pers.name_), age_(pers.age_) {}
+  Person(const Person& person) : name(person.name), age(person.age) {}
 
-  // Declare a name property of type std::string:
-  property<std::string> name {
-    property_get {return this->name_;},
-    property_set {this->name_ = value;}
+  // Declare a Name property of type std::string:
+  property_<std::string> Name {
+    get_ {return this->name;},
+    set_ {this->name = value;}
   };
   
-  // Declare an age property of type int:
-  property<int> age {
-    property_get {return this->age_;},
-    property_set {this->age_ = value;}
+  // Declare an Age property of type int:
+  property_<int> Age {
+    get_ {return this->age;},
+    set_ {this->age = value;}
   };
   
-  friend std::ostream& operator<<(std::ostream& os, const person& pers) {return os << "name = " << pers.name << ", age = " << pers.age;}
+  friend std::ostream& operator<<(std::ostream& os, const Person& person) {return os << "Name = " << person.Name << ", Age = " << person.Age;}
    
 private:
-  std::string name_ = "N/A";
-  int age_ = 0;
+  std::string name = "N/A";
+  int age = 0;
 };
 
 int main(int argc, char* argv[]) {
   std::cout << "Simple Properties" << std::endl;
     
   // Create a new Person object:
-  person pers;
+  Person person;
   
   // Print out the name and the age associated with the pers:
-  std::cout << "person details - " << pers << std::endl;
+  std::cout << "Person details - " << person << std::endl;
 
   // Set some values on the pers object:
-  pers.name = "Joe";
-  pers.age = 99;
-  std::cout << "person details - " << pers << std::endl;
+  person.Name = "Joe";
+  person.Age = 99;
+  std::cout << "Person details - " << person << std::endl;
 
   // Increment the Age property:
-  pers.age += 1;
-  std::cout << "person details - " << pers << std::endl;
+  person.Age += 1;
+  std::cout << "Person details - " << person << std::endl;
 }
 ```
 
@@ -153,11 +153,11 @@ Console output:
 
 ```
 Simple Properties
-person details - name = N/A, age = 0
-person details - name = Joe, age = 99
-person details - name = Joe, age = 100
+Person details - Name = N/A, Age = 0
+Person details - Name = Joe, Age = 99
+Person details - Name = Joe, Age = 100
 ```
-You can try and play this example [here](https://wandbox.org/permlink/vAG6uvDfTeYS8M4z).
+You can try and play this example [here](https://wandbox.org/permlink/BVxsGLBVCcNoTECH).
 
 For more examples see [examples](examples).
 
