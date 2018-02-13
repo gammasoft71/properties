@@ -8,7 +8,7 @@ TEST_CASE("GIVEN Create readonly property THEN get it with implicit cast operato
   property_<int, readonly_> Value {
     get_ {return v;}
   };
-  
+
   REQUIRE(Value == 42);
 }
 
@@ -17,7 +17,7 @@ TEST_CASE("GIVEN Create readonly property THEN get it with functor") {
   property_<int, readonly_> Value {
     get_ {return v;}
   };
-  
+
   REQUIRE(Value() == 42);
 }
 
@@ -26,7 +26,7 @@ TEST_CASE("GIVEN Create readonly property THEN get it with get function") {
   property_<int, readonly_> Value {
     get_ {return v;}
   };
-  
+
   REQUIRE(Value.get() == 42);
 }
 
@@ -35,7 +35,7 @@ TEST_CASE("GIVEN Create readonly property THEN check inequality operator") {
   property_<int, readonly_> Value {
     get_ {return v;}
   };
-  
+
   REQUIRE(Value != 84);
 }
 
@@ -45,11 +45,11 @@ namespace {
     PropertyReadOnly() {}
     PropertyReadOnly(const PropertyReadOnly& prw) : name(prw.name) {}
     PropertyReadOnly& operator=(const PropertyReadOnly& prw) = default;
-    
+
     property_<std::string, readonly_> Name {
       get_ {return this->name;}
     };
-    
+
   private:
     std::string name = "Test property";
   };

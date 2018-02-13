@@ -10,7 +10,7 @@ TEST_CASE("GIVEN Create readwrite property THEN get it with implicit cast operat
     get_ {return v;},
     set_ {v = value;}
   };
-  
+
   REQUIRE(v == 42);
   REQUIRE(Value == 42);
 }
@@ -21,7 +21,7 @@ TEST_CASE("GIVEN Create readwrite property THEN get it with fucntor") {
     get_ {return v;},
     set_ {v = value;}
   };
-  
+
   REQUIRE(v == 42);
   REQUIRE(Value() == 42);
 }
@@ -32,7 +32,7 @@ TEST_CASE("GIVEN Create readwrite property THEN get it with get method") {
     get_ {return v;},
     set_ {v = value;}
   };
-  
+
   REQUIRE(v == 42);
   REQUIRE(Value.get() == 42);
 }
@@ -43,7 +43,7 @@ TEST_CASE("GIVEN Create readwrite property THEN check inequality operator") {
     get_ {return v;},
     set_ {v = value;}
   };
-  
+
   REQUIRE(v != 84);
   REQUIRE(Value != 84);
 }
@@ -54,13 +54,13 @@ TEST_CASE("GIVEN Create readwrite property WHEN set it THEN get it") {
     get_ {return v;},
     set_ {v = value;}
   };
-  
+
   Value = 24;
   REQUIRE(v == 24);
-  
+
   Value(48);
   REQUIRE(v == 48);
-  
+
   Value.set(84);
   REQUIRE(Value == 84);
   REQUIRE(v == 84);
@@ -72,12 +72,12 @@ namespace {
     PropertyReadWrite() {}
     PropertyReadWrite(const PropertyReadWrite& prw) : name(prw.name) {}
     PropertyReadWrite& operator=(const PropertyReadWrite&) = default;
-    
+
     property_<std::string> Name {
       get_ {return this->name;},
       set_ {this->name = value;}
     };
-    
+
   private:
     std::string name = "Test property";
   };

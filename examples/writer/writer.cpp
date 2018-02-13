@@ -17,7 +17,7 @@ public:
   void Write(const std::string& string) override {
     std::cout << string;
   }
-  
+
   void WriteLine(const std::string& string) override {
     this->Write(string);
     std::cout << std::endl;
@@ -27,36 +27,36 @@ public:
 class TestWriter {
 public:
   TestWriter() = default;
-  
+
   property_<std::shared_ptr<::Writer>, writeonly_> Writer {
     set_ {
       this->writer = value;
       this->writer->WriteLine("set new Writer...");
     }
   };
-  
+
   void DoSomething() {
-    if(this->writer != nullptr)
+    if (this->writer != nullptr)
       this->writer->WriteLine("DoSomething...");
   }
-  
+
   void DoOtherthing() {
-    if(this->writer != nullptr)
+    if (this->writer != nullptr)
       this->writer->WriteLine("DoOtherthing...");
   }
-  
+
 private:
   std::shared_ptr<::Writer> writer;
 };
 
 int main(int argc, char* argv[]) {
   TestWriter testWriter;
-  
+
   std::cout << "TestWriter without Writer :" << std::endl;
   testWriter.DoSomething();
   testWriter.DoOtherthing();
   std::cout << std::endl;
-  
+
   std::cout << "TestWriter with ConsoleWriter :" << std::endl;
   testWriter.Writer = std::make_shared<ConsoleWriter>();
   testWriter.DoSomething();

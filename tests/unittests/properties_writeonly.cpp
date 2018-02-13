@@ -8,7 +8,7 @@ TEST_CASE("GIVEN create writeonly property WHEN Set with equal operator then THE
   property_<int, writeonly_> Value {
     set_ {v = value;}
   };
-  
+
   Value = 24;
   REQUIRE(v == 24);
 }
@@ -18,7 +18,7 @@ TEST_CASE("GIVEN create writeonly property WHEN Set with functor then THEN check
   property_<int, writeonly_> Value {
     set_ {v = value;}
   };
-  
+
   Value(24);
   REQUIRE(v == 24);
 }
@@ -28,7 +28,7 @@ TEST_CASE("GIVEN create writeonly property WHEN Set with set method then THEN ch
   property_<int, writeonly_> Value {
     set_ {v = value;}
   };
-  
+
   Value.set(24);
   REQUIRE(v == 24);
 }
@@ -39,11 +39,11 @@ namespace {
     PropertyWriteOnly() {}
     PropertyWriteOnly(const PropertyWriteOnly& prw) : name(prw.name) {}
     PropertyWriteOnly& operator=(const PropertyWriteOnly& prw) = default;
-    
+
     property_<std::string, writeonly_> Name {
       set_ {this->name = value;}
     };
-    
+
     std::string name = "Test property";
   };
 }

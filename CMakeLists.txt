@@ -53,6 +53,7 @@ list(APPEND CPPCHECK_ARGS
 
 list(APPEND ASTYLE_ARGS
   --style=java
+  --lineend=linux
   --indent=spaces=2
   --attach-namespaces
   --attach-classes
@@ -66,8 +67,8 @@ list(APPEND ASTYLE_ARGS
   --indent-col1-comments
   --pad-oper
   --pad-comma
+  --pad-header
   --unpad-paren
-  --fill-empty-lines
   --align-pointer=type
   --align-reference=type
   --remove-braces

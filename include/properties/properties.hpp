@@ -12,18 +12,18 @@
 namespace properties {
   /// @brief readonly_ struct represent a property_ read only attribute.
   struct readonly_ {};
-  
+
   /// @brief writeonly_ struct represent a property_ write only attributex.
   struct readwrite_ {};
-  
+
   /// @brief readwrite_ struct represent a property_ read write attribute.
   struct writeonly_ {};
-  
+
   /// @cond
   template <class T, class attribute_type = readwrite_>
   class property_;
   /// @endcond
-  
+
   /// @brief A property_ is a member that provides a flexible mechanism to read, write, or compute the value of a private field. Properties can be used as if they are public data members, but they are actually special methods called accessors. This enables data to be accessed easily and still helps promote the safety and flexibility of methods.
   /// @remarks The copy constructor is deleted. So the copy constructor of the owner class must be specified (the implicit or default copy contructor doesn't build).
   /// @par Examples
@@ -33,29 +33,29 @@ namespace properties {
   class property_ : public attribute_type {
     using getter_type = std::function<T()>;
     using setter_type = std::function<void(T)>;
-    
+
   public:
     /// @brief This method is an accessor method that retrieves the value of the property_ or the indexer element.
     T get() const {return this->getter();}
-    
+
     /// @brief This operator is an accessor operator that retrieves the value of the property_ or the indexer element.
     T operator()() const {return this->getter();}
-    
+
     /// @brief This method is an accessor method that assigns the value of the property_ or the indexer element.
     T set(T value) {this->setter(value); return this->getter();}
-    
+
     /// @brief This operator is an accessor operator that assigns the value of the property_ or the indexer element.
     T operator()(T value) {this->setter(value); return this->getter();}
-    
+
     /// @cond
     property_(const getter_type& getter, const setter_type& setter) : getter(getter), setter(setter) {}
-    
+
     operator T() const {return this->getter();}
     property_& operator=(const property_& property_) {this->setter(property_.getter()); return *this;}
-    
+
     bool operator==(T value) const {return this->getter() == value;}
     bool operator !=(T value) const {return this->getter() != value;}
-    
+
     property_& operator=(T value) {this->setter(value); return *this;}
     void operator+=(T value) {this->setter(this->getter() + value);}
     void operator-=(T value) {this->setter(this->getter() - value);}
@@ -67,57 +67,57 @@ namespace properties {
     void operator ^=(T value) {this->setter(this->getter() ^ value);}
     void operator<<=(T value) {this->setter(this->getter() << value);}
     void operator>>=(T value) {this->setter(this->getter() >> value);}
-    
+
     friend std::ostream& operator<<(std::ostream& os, const property_& p) {return os <<  p();}
     /// @endcond
-    
+
   private:
     property_(const property_& property_)  = delete;
     getter_type getter;
     setter_type setter;
   };
-  
+
   /// @cond
   template <class T>
   class property_<T, readonly_> : public readonly_ {
     using getter_type = std::function<T()>;
-    
+
   public:
     explicit property_(const getter_type& getter) : getter(getter) {}
     property_& operator=(const property_& property_) {return *this;}
-    
+
     T get() const {return this->getter();}
     T operator()() const {return this->getter();}
     operator T() const { return this->getter(); }
     operator T() { return this->getter(); }
     bool operator==(T value) const {return this->getter() == value;}
     bool operator !=(T value) const {return this->getter() != value;}
-    
+
     friend std::ostream& operator<<(std::ostream& os, const property_& p) {return os <<  p();}
-    
+
   private:
     property_(const property_& property_)  = delete;
     getter_type getter;
   };
-  
+
   template <class T>
   class property_<T, writeonly_> : public writeonly_ {
     using setter_type = std::function<void(T)>;
-    
+
   public:
     explicit property_(const setter_type& setter) : setter(setter) {}
     property_& operator=(const property_& property_) {return *this;}
-    
+
     void set(T value) {this->setter(value);}
     void operator()(T value) {this->setter(value);}
     void operator=(T value) {this->setter(value);}
-    
+
   private:
     property_(const property_& property_)  = delete;
     setter_type setter;
   };
   /// @endcond
-  
+
   /// @brief A #property_ is a member that provides a flexible mechanism to read, write, or compute the value of a private field. Properties can be used as if they are public data members, but they are actually special methods called accessors. This enables data to be accessed easily and still helps promote the safety and flexibility of methods.
   /// @remarks The copy constructor is deleted. So the copy constructor of the owner class must be specified (the implicit or default copy contructor doesn't build).
   /// @par Examples
@@ -126,7 +126,7 @@ namespace properties {
   /// @ingroup Keywords
 #define property_ \
   property_
-  
+
   /// @brief The #get_ keyword defines an accessor method in a property_ or indexer that retrieves the value of the property_ or the indexer element.
   /// @par Examples
   /// @code
@@ -147,7 +147,7 @@ namespace properties {
   /// @ingroup Keywords
 #define get_ \
   [&]()
-  
+
   /// @brief The #set_ keyword defines an accessor method in a property_ or indexer that assigns the value of the property_ or the indexer element.
   /// @par Examples
   /// @code
