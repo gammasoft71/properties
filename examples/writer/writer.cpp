@@ -3,8 +3,6 @@
 #include <memory>
 #include <string>
 
-using namespace properties;
-
 class Writer {
 public:
   virtual ~Writer() {}

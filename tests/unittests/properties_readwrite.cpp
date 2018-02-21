@@ -2,8 +2,6 @@
 #include <catch/catch.hpp>
 #include <memory>
 
-using namespace properties;
-
 TEST_CASE("GIVEN Create readwrite property THEN get it with implicit cast operator") {
   int v = 42;
   property_<int> Value {

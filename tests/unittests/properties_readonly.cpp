@@ -1,8 +1,6 @@
 #include <properties/properties.hpp>
 #include <catch/catch.hpp>
 
-using namespace properties;
-
 TEST_CASE("GIVEN Create readonly property THEN get it with implicit cast operator") {
   int v = 42;
   property_<int, readonly_> Value {

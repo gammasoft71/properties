@@ -2,8 +2,6 @@
 #include <iostream>
 #include <string>
 
-using namespace properties;
-
 class Point {
 public:
   Point() = default;

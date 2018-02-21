@@ -1,8 +1,6 @@
 #include <properties/properties.hpp>
 #include <catch/catch.hpp>
 
-using namespace properties;
-
 TEST_CASE("GIVEN create writeonly property WHEN Set with equal operator then THEN check value") {
   int v = 42;
   property_<int, writeonly_> Value {
