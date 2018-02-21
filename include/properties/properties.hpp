@@ -126,12 +126,12 @@ namespace properties {
   /// @ingroup Keywords
 #define property_ \
   properties::property_
-  
+
   /// @brief #readonly_  represent a property_ read only attribute.
   /// @ingroup Keywords
 #define readonly_ \
   properties::readonly_
-  
+
   /// @brief #readwrite_  represent a property_ read write attribute.
   /// @ingroup Keywords
 #define readwrite_ \
