@@ -6,7 +6,7 @@
 [![© GAMMA Soft](https://img.shields.io/badge/©-GAMMA%20Soft-004080.svg)](https://gammasoft71.wixsite.com/gammasoft) 
 [![std c++14](https://img.shields.io/badge/std-c++14-004080.svg)](https://cppreference.com) 
 [![os Windows, macOS, linux](https://img.shields.io/badge/os-Windows,%20macOS,%20linux-004080.svg)](.)
-[![Try online](https://img.shields.io/badge/try-online-004080.svg)](https://wandbox.org/permlink/BVxsGLBVCcNoTECH)
+[![Try online](https://img.shields.io/badge/try-online-004080.svg)](https://wandbox.org/permlink/aA17kJZXhJOYsTpW)
 
 # properties
 
@@ -157,7 +157,7 @@ Person details - Name = N/A, Age = 0
 Person details - Name = Joe, Age = 99
 Person details - Name = Joe, Age = 100
 ```
-You can try and play this example [here](https://wandbox.org/permlink/BVxsGLBVCcNoTECH).
+You can try and play this example [here](https://wandbox.org/permlink/aA17kJZXhJOYsTpW).
 
 For more examples see [examples](examples).
 
