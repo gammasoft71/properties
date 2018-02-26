@@ -9,7 +9,6 @@ ________________________________________________________________________________
 [![license](https://img.shields.io/github/license/gammasoft71/Switch.svg)](License.md)
 [![GitHub top language](https://img.shields.io/github/languages/top/gammasoft71/properties.svg)](https://cppreference.com)
 [![SourceForge Download properties](https://img.shields.io/sourceforge/dt/properties.svg)](https://sourceforge.net/projects/properties/files/latest/download)
-[![os Windows, macOS, linux](https://img.shields.io/badge/os-Windows,%20macOS,%20linux-004080.svg)](.)
 [![os Windows](https://img.shields.io/badge/os-Windows-004080.svg)](.)
 [![os macOS](https://img.shields.io/badge/os-macOS-004080.svg)](.)
 [![os Linux](https://img.shields.io/badge/os-Linux-004080.svg)](.)
