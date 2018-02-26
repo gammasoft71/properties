@@ -20,6 +20,7 @@ ________________________________________________________________________________
 
 * **properties** add c#-like property accessor to your c++ class.
 * **properties** is distributed as a single header file.
+* **properties** is a small part of [Switch](https://github.com/gammasoft71/Switch)
 
 ## What is it ?
 
