@@ -1,4 +1,6 @@
-![properties picture](docs/pictures/properties.png)
+![properties picture](docs/pictures/properties-banner.png)
+____________________________________________________________________________________
+
 [![build status](https://travis-ci.org/gammasoft71/properties.svg)](https://travis-ci.org/gammasoft71/properties) 
 [![Build status](https://ci.appveyor.com/api/projects/status/v7q0cn0kocokvpoa?svg=true)](https://ci.appveyor.com/project/gammasoft71/properties)
 [![codecov](https://codecov.io/gh/yfiumefreddo/properties/branch/master/graph/badge.svg)](https://codecov.io/gh/gammasoft71/properties)
