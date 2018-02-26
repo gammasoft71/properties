@@ -9,11 +9,11 @@ ________________________________________________________________________________
 [![license](https://img.shields.io/github/license/gammasoft71/Switch.svg)](License.md)
 [![GitHub top language](https://img.shields.io/github/languages/top/gammasoft71/properties.svg)](https://cppreference.com)
 [![SourceForge Download properties](https://img.shields.io/sourceforge/dt/properties.svg)](https://sourceforge.net/projects/properties/files/latest/download)
-[![os Windows](https://img.shields.io/badge/os-Windows-004080.svg)](.)
-[![os macOS](https://img.shields.io/badge/os-macOS-004080.svg)](.)
-[![os Linux](https://img.shields.io/badge/os-Linux-004080.svg)](.)
-[![os iOS](https://img.shields.io/badge/os-iOS-004080.svg)](.)
-[![os android](https://img.shields.io/badge/os-android-004080.svg)](.)
+![os Windows](https://img.shields.io/badge/os-Windows-004080.svg)
+![os macOS](https://img.shields.io/badge/os-macOS-004080.svg)
+![os Linux](https://img.shields.io/badge/os-Linux-004080.svg)
+![os iOS](https://img.shields.io/badge/os-iOS-004080.svg)
+![os android](https://img.shields.io/badge/os-android-004080.svg)
 [![Try online](https://img.shields.io/badge/try-online-004080.svg)](https://wandbox.org/permlink/aA17kJZXhJOYsTpW)
 
 # properties
