@@ -1,4 +1,4 @@
-![properties picture](docs/pictures/properties-banner.png)
+[![properties picture](docs/pictures/properties-banner.png)](https://gammasoft71.wixsite.com/properties)
 ____________________________________________________________________________________
 
 [![build status](https://travis-ci.org/gammasoft71/properties.svg)](https://travis-ci.org/gammasoft71/properties) 
