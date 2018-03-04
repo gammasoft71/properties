@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.8)
 
-project(properties VERSION 1.0.1)
+project(properties VERSION 2.0.0)
 set(PROJECT_BRIEF "another c#-like property accessor for c++.")
 set(PROJECT_AUTHOR "gammasoft71")
 set(PROJECT_LOGO "")
