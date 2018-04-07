@@ -108,6 +108,8 @@ public:
   // The implicit or default copy constructor is not suffisant.
   Person(const Person& person) : name(person.name), age(person.age) {}
 
+  Person& operator=(const Person& person) = default;
+  
   // Declare a Name property of type std::string:
   property_<std::string> Name {
     get_ {return this->name;},
