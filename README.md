@@ -94,7 +94,7 @@ private:
 person.cpp:
 
 ```c++
-#include <properties/properties.hpp>
+#include "properties.hpp"
 #include <iostream>
 #include <string>
 
@@ -145,17 +145,6 @@ int main(int argc, char* argv[]) {
   person.Age += 1;
   std::cout << "Person details - " << person << std::endl;
 }
-```
-
-CMakeLists.txt:
-
-```cmake
-cmake_minimum_required(VERSION 3.2)
-
-project(person)
-find_package(properties REQUIRED)
-add_executable(person person.cpp)
-target_link_libraries(person properties)
 ```
 
 Console output:
