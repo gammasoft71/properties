@@ -103,7 +103,7 @@ public:
   Person() = default;
 
   // Must be specified because the copy contructor of property class is deleted.
-  // The implicit or default copy constructor is not suffisant.
+  // The implicit or default copy constructor is not sufficient.
   Person(const Person& person) : name(person.name), age(person.age) {}
 
   Person& operator=(const Person& person) = default;
