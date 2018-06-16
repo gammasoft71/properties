@@ -8,7 +8,7 @@ public:
   Point(int X, int Y) : x(X), y(Y) {}
 
   // Must be specified because the copy contructor of property_ class is deleted.
-  // The implicit or default copy constructor is not suffisant.
+  // The implicit or default copy constructor is not sufficient.
   Point(const Point& point) : x(point.x), y(point.y) {}
 
   Point& operator=(const Point& point) = default;
