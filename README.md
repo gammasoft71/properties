@@ -6,7 +6,7 @@ ________________________________________________________________________________
 [![Documentation](https://img.shields.io/badge/code-documented-brightgreen.svg)](https://gammasoft71.github.io/properties-doc) 
 [![codecov](https://codecov.io/gh/yfiumefreddo/properties/branch/master/graph/badge.svg)](https://codecov.io/gh/gammasoft71/properties)
 [![Website](https://img.shields.io/website-up-down-green-red/http/shields.io.svg?label=properties%20website)](https://gammasoft71.wixsite.com/properties)
-[![license](https://img.shields.io/github/license/gammasoft71/Switch.svg)](License.md)
+[![license](https://img.shields.io/github/license/gammasoft71/properties.svg)](License.md)
 [![SourceForge Download properties](https://img.shields.io/sourceforge/dt/properties.svg)](https://sourceforge.net/projects/properties/files/latest/download)
 [![GitHub top language](https://img.shields.io/github/languages/top/gammasoft71/properties.svg)](https://cppreference.com)
 ![os Windows](https://img.shields.io/badge/os-Windows-004080.svg)
@@ -20,7 +20,6 @@ ________________________________________________________________________________
 
 * **properties** add c#-like property accessor to your c++ class.
 * **properties** is distributed as a single header file.
-* **properties** is a small part of [Switch](https://github.com/gammasoft71/Switch)
 
 ## What is it ?
 
