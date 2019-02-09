@@ -3,7 +3,7 @@ ________________________________________________________________________________
 
 [![build status](https://travis-ci.org/gammasoft71/properties.svg)](https://travis-ci.org/gammasoft71/properties) 
 [![Build status](https://ci.appveyor.com/api/projects/status/v7q0cn0kocokvpoa?svg=true)](https://ci.appveyor.com/project/gammasoft71/properties)
-[![Documentation](https://img.shields.io/badge/code-documented-brightgreen.svg)](https://gammasoft71.github.io/properties-doc) 
+[![Documentation](https://codedocs.xyz/gammasoft71/properties.svg)](https://codedocs.xyz/gammasoft71/properties/)
 [![codecov](https://codecov.io/gh/gammasoft71/properties/branch/master/graph/badge.svg)](https://codecov.io/gh/gammasoft71/properties)
 [![Website](https://img.shields.io/website-up-down-green-red/http/shields.io.svg?label=properties%20website)](https://gammasoft71.wixsite.com/properties)
 [![license](https://img.shields.io/github/license/gammasoft71/properties.svg)](License.md)
