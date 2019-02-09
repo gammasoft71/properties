@@ -39,16 +39,16 @@ matrix:
     os: linux
     cache: ccache
     script: scripts/travis/build_gcc.sh
-  - env: TEST="Git check"
-    os: linux
-    script: scripts/travis/git_check.sh
-  - env: TEST="cppcheck analyse"
-    os: linux
-    script: scripts/travis/cppcheck_analyse.sh
-  - env: TEST="AStyle format"
-    os: linux
-    script: scripts/travis/astyle_format.sh
-  - env: TEST="Generate reference guide and publish on git properties-doc"
-    os: osx
-    osx_image: xcode9.1
-    script: scripts/travis/generate_reference_guide.sh
+  #- env: TEST="Git check"
+  #  os: linux
+  #  script: scripts/travis/git_check.sh
+  #- env: TEST="cppcheck analyse"
+  #  os: linux
+  #  script: scripts/travis/cppcheck_analyse.sh
+  #- env: TEST="AStyle format"
+  #  os: linux
+  #  script: scripts/travis/astyle_format.sh
+  #- env: TEST="Generate reference guide and publish on git properties-doc"
+  #  os: osx
+  #  osx_image: xcode9.1
+  #  script: scripts/travis/generate_reference_guide.sh
