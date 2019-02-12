@@ -1,4 +1,4 @@
-[![properties picture](docs/pictures/properties-banner.png)](https://gammasoft71.wixsite.com/properties)
+[![properties picture](docs/pictures/header.png)](https://gammasoft71.wixsite.com/xtd-properties)
 
 [![Build Status](https://travis-ci.org/gammasoft71/xtd.properties.svg?branch=master)](https://travis-ci.org/gammasoft71/xtd.properties)
 [![Build status](https://ci.appveyor.com/api/projects/status/r3w9ojjiecp4vf8f?svg=true)](https://ci.appveyor.com/project/gammasoft71/xtd-properties)
