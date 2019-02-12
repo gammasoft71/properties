@@ -149,9 +149,12 @@ if (BUILD_TESTS)
   message(STATUS "Building properties Tests")
   enable_testing()
 
+  message(STATUS "  [X] manualtests")
+  add_subdirectory("tests/manualtests")
   message(STATUS "  [X] unittests")
   add_subdirectory("tests/unittests")
 else()
+  message(STATUS "  [ ] manualtests")
   message(STATUS "  [ ] unittests")
 endif()
 
