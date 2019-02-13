@@ -8,8 +8,8 @@
 /// @defgroup Keywords Keywords
 /// @brief Keywords are predefined, reserved identifiers that have special meanings to the compiler. They cannot be used as identifiers in your program unless they include @ as a prefix. For example, @@if is a valid identifier, but if is not because if is a keyword.
 
-/// @brief The properties namespace contains all properties classes.
-namespace properties {
+/// @brief The xtd namespace contains all fundamental classes to access console.
+namespace xtd {
   /// @brief readonly_ struct represent a property_ read only attribute.
   struct readonly_ {};
 
@@ -179,22 +179,22 @@ namespace properties {
   /// @include person.cpp
   /// @ingroup Keywords
 #define property_ \
-  properties::property_
+  xtd::property_
 
   /// @brief #readonly_  represent a property_ read only attribute.
   /// @ingroup Keywords
 #define readonly_ \
-  properties::readonly_
+  xtd::readonly_
 
   /// @brief #readwrite_  represent a property_ read write attribute.
   /// @ingroup Keywords
 #define readwrite_ \
-  properties::readwrite_ \
+  xtd::readwrite_ \
 
   /// @brief #writeonly_  represent a property_ write only attribute.
   /// @ingroup Keywords
 #define writeonly_ \
-  properties::writeonly_ \
+  xtd::writeonly_ \
 
   /// @brief The #get_ keyword defines an accessor method in a property_ or indexer that retrieves the value of the property_ or the indexer element.
   /// @par Examples
