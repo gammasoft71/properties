@@ -1,5 +1,5 @@
 #include <xtd/properties.hpp>
-#include <catch/catch.hpp>
+#include <catch2/catch.hpp>
 #include <memory>
 
 TEST_CASE("GIVEN Create readwrite property THEN get it with implicit cast operator") {

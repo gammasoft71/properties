@@ -1,5 +1,5 @@
 #include <xtd/properties.hpp>
-#include <catch/catch.hpp>
+#include <catch2/catch.hpp>
 
 TEST_CASE("GIVEN Create readonly property THEN get it with implicit cast operator") {
   int v = 42;
