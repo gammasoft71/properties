@@ -1,4 +1,4 @@
-#include <properties/properties.hpp>
+#include <xtd/properties.hpp>
 #include <catch/catch.hpp>
 
 TEST_CASE("GIVEN create writeonly property WHEN Set with equal operator then THEN check value") {

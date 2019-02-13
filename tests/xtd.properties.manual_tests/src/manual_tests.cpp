@@ -1,5 +1,5 @@
 //{ Region header text.
-#include <properties/properties.hpp>
+#include <xtd/properties.hpp>
 #include <iostream>
 #include <string>
 //}
@@ -43,12 +43,4 @@ int main() {
   std::cout << "p.Age3 = " << p.Age3 << std::endl;
   p.SetAge3(48);
   std::cout << "p.Age3 = " << p.Age3 << std::endl;
-  
-  {
-    int a = 4;
-    std::cout << "a = " << a << std::endl;
-  }
-  
-  int i;
-  std::cout << "i = " << i << std::endl;
 }
