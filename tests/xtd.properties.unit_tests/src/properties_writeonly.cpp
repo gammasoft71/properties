@@ -1,66 +1,80 @@
 #include <xtd/properties.hpp>
-#include <catch2/catch.hpp>
+#include <xtd/tunit>
 
-TEST_CASE("GIVEN create writeonly property WHEN Set with equal operator then THEN check value") {
-  int v = 42;
-  property_<int, writeonly_> Value {
-    set_ {v = value;}
-  };
+using namespace xtd;
+using namespace xtd::tunit;
 
-  Value = 24;
-  REQUIRE(v == 24);
-}
-
-TEST_CASE("GIVEN create writeonly property WHEN Set with functor then THEN check value") {
-  int v = 42;
-  property_<int, writeonly_> Value {
-    set_ {v = value;}
-  };
-
-  Value(24);
-  REQUIRE(v == 24);
-}
-
-TEST_CASE("GIVEN create writeonly property WHEN Set with set method then THEN check value") {
-  int v = 42;
-  property_<int, writeonly_> Value {
-    set_ {v = value;}
-  };
-
-  Value.set(24);
-  REQUIRE(v == 24);
-}
-
-namespace {
-  class PropertyWriteOnly {
+namespace unit_tests {
+  class test_class_(test_write_only_property) {
   public:
-    PropertyWriteOnly() {}
-    PropertyWriteOnly(const PropertyWriteOnly& prw) : name(prw.name) {}
-    PropertyWriteOnly& operator=(const PropertyWriteOnly& prw) = default;
-
-    property_<std::string, writeonly_> Name {
-      set_ {this->name = value;}
+    void test_method_(create_and_set_with_equal_operator) {
+      int v = 42;
+      property_<int, writeonly_> value {
+        set_ {v = value;}
+      };
+      
+      value = 24;
+      assert::are_equal(24, v);
+    }
+    
+    void test_method_(create_and_set_with_functor) {
+      int v = 42;
+      property_<int, writeonly_> value {
+        set_ {v = value;}
+      };
+      
+      value(24);
+      assert::are_equal(24, v);
+    }
+    
+    void test_method_(create_and_set_with_set_method) {
+      int v = 42;
+      property_<int, writeonly_> value {
+        set_ {v = value;}
+      };
+      
+      value.set(24);
+      assert::are_equal(24, v);
+    }
+    
+    class property_write_only {
+    public:
+      property_write_only() {}
+      property_write_only(const property_write_only& prw) : name_(prw.name_) {}
+      property_write_only& operator=(const property_write_only& prw) = default;
+      
+      property_<std::string, writeonly_> name {
+        set_ {this->name_ = value;}
+      };
+      
+      std::string name_ = "Test property";
     };
 
-    std::string name = "Test property";
+    void test_method_(create_using_copy_constructor) {
+      std::shared_ptr<property_write_only> property_write_only1 = std::make_shared<property_write_only>();
+      std::shared_ptr<property_write_only> property_write_only2 = std::make_shared<property_write_only>(*property_write_only1);
+      property_write_only1 = nullptr;
+      
+      assert::is_null(property_write_only1);
+      assert::are_equal("Test property", property_write_only2->name_);
+      
+      property_write_only2->name = "Other thing";
+      
+      assert::are_equal("Other thing", property_write_only2->name_);
+    }
+    
+    void test_method_(create_using_copy_operator) {
+      std::shared_ptr<property_write_only> property_write_only1 = std::make_shared<property_write_only>();
+      std::shared_ptr<property_write_only> property_write_only2 = std::make_shared<property_write_only>();
+      *property_write_only2 = *property_write_only1;
+      property_write_only1 = nullptr;
+      
+      assert::is_null(property_write_only1);
+      assert::are_equal("Test property", property_write_only2->name_);
+      
+      property_write_only2->name = "Other thing";
+      
+      assert::are_equal("Other thing", property_write_only2->name_);
+    }
   };
-}
-
-TEST_CASE("GIVEN Create writeonly property WHEN using copy constructor THEN check property_ was not copied") {
-  std::shared_ptr<PropertyWriteOnly> propertyWriteOnly1 = std::make_shared<PropertyWriteOnly>();
-  std::shared_ptr<PropertyWriteOnly> propertyWriteOnly2 = std::make_shared<PropertyWriteOnly>(*propertyWriteOnly1);
-  propertyWriteOnly1 = nullptr;
-  REQUIRE(propertyWriteOnly2->name == "Test property");
-  propertyWriteOnly2->Name = "Other thing";
-  REQUIRE(propertyWriteOnly2->name == "Other thing");
-}
-
-TEST_CASE("GIVEN Create writeonly property WHEN using copy opearotor THEN check property_ was not copied") {
-  std::shared_ptr<PropertyWriteOnly> propertyWriteOnly1 = std::make_shared<PropertyWriteOnly>();
-  std::shared_ptr<PropertyWriteOnly> propertyWriteOnly2 = std::make_shared<PropertyWriteOnly>();
-  *propertyWriteOnly2 = *propertyWriteOnly1;
-  propertyWriteOnly1 = nullptr;
-  REQUIRE(propertyWriteOnly2->name == "Test property");
-  propertyWriteOnly2->Name = "Other thing";
-  REQUIRE(propertyWriteOnly2->name == "Other thing");
 }
