@@ -1,5 +1,5 @@
-#include <xtd/properties.hpp>
-#include <xtd/tunit>
+#include <xtd/xtd.properties.hpp>
+#include <xtd/xtd.tunit>
 
 using namespace xtd;
 using namespace xtd::tunit;

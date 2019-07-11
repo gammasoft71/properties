@@ -1,4 +1,4 @@
-#include <xtd/properties.hpp>
+#include <xtd/xtd.properties>
 #include <iostream>
 #include <memory>
 #include <string>

@@ -5,6 +5,8 @@ project(xtd.properties VERSION 1.0.0)
 set(INCLUDES
   include/xtd/properties
   include/xtd/properties.hpp
+  include/xtd/xtd.properties
+  include/xtd/xtd.properties.hpp
 )
 set(SOURCES
   src/properties.cpp

@@ -1,5 +1,5 @@
 //{ Region header text.
-#include <xtd/properties.hpp>
+#include <xtd/xtd.properties.hpp>
 #include <iostream>
 #include <string>
 //}
