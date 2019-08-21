@@ -2,41 +2,41 @@
 #include <iostream>
 #include <string>
 
-class Point {
+class point {
 public:
-  Point() = default;
-  Point(int X, int Y) : x(X), y(Y) {}
+  point() = default;
+  point(int x, int y) : x_(x), y_(y) {}
 
   // Must be specified because the copy contructor of property_ class is deleted.
   // The implicit or default copy constructor is not sufficient.
-  Point(const Point& point) : x(point.x), y(point.y) {}
+  point(const point& point) : x_(point.x_), y_(point.y_) {}
 
-  Point& operator=(const Point& point) = default;
+  point& operator=(const point& point) = default;
 
   // Declare a X property of type int:
-  property_<int, readonly_> X {
-    get_ {return this->x;}
+  property_<int, readonly_> x {
+    get_ {return this->x_;}
   };
 
   // Declare a Y property of type int:
-  property_<int, readonly_> Y {
-    get_ {return this->y;}
+  property_<int, readonly_> y {
+    get_ {return this->y_;}
   };
 
-  friend std::ostream& operator<<(std::ostream& os, const Point& point) {return os << "[X = " << point.X << ", Y = " << point.Y << "]";}
+  friend std::ostream& operator<<(std::ostream& os, const point& point) {return os << "[X = " << point.x << ", Y = " << point.y << "]";}
 
 private:
-  int x = 0;
-  int y = 0;
+  int x_ = 0;
+  int y_ = 0;
 };
 
 int main(int argc, char* argv[]) {
-  Point p1 {12, 24};
+  point p1 {12, 24};
   std::cout << "p1 = " << p1 << std::endl;
 
-  Point p2 = p1;
-  std::cout << "p2.X = " << p2.X << std::endl;
-  std::cout << "p2.Y = " << p2.Y << std::endl;
+  point p2 = p1;
+  std::cout << "p2.X = " << p2.x << std::endl;
+  std::cout << "p2.Y = " << p2.y << std::endl;
 
 }
 
