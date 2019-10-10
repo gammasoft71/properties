@@ -6,5 +6,5 @@ project(src)
 # Projects
 add_subdirectory(xtd_properties)
 if (CMAKE_SOURCE_DIR STREQUAL CMAKE_CURRENT_SOURCE_DIR)
-  add_subdirectory(xtd.tunit)
+  add_subdirectory(xtd_tunit)
 endif ()
