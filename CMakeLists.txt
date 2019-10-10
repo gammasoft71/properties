@@ -18,9 +18,6 @@ endif ()
 
 # Projects
 add_subdirectory(src)
-if (CMAKE_SOURCE_DIR STREQUAL CMAKE_CURRENT_SOURCE_DIR)
-  add_subdirectory(xtd.tunit)
-endif ()
 
 # Tests projects
 option(ENABLE_TESTS "Enable tests" OFF)
