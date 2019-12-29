@@ -5,8 +5,8 @@
 #include <functional>
 #include <ostream>
 
-/// @defgroup Keywords Keywords
-/// @brief Keywords are predefined, reserved identifiers that have special meanings to the compiler. They cannot be used as identifiers in your program unless they include @ as a prefix. For example, @@if is a valid identifier, but if is not because if is a keyword.
+/// @defgroup keywords keywords
+/// @brief Keywords are predefined, reserved identifiers that have special meanings to the compiler.
 
 /// @brief The xtd namespace contains all fundamental classes to access Hardware, Os, System, and more.
 namespace xtd {
@@ -177,22 +177,22 @@ namespace xtd {
   /// @par Examples
   /// This sample shows a Person class that has two properties: Name (string) and Age (int). Both properties are read/write.
   /// @include person.cpp
-  /// @ingroup Keywords
+  /// @ingroup keywords
 #define property_ \
   xtd::property_
 
   /// @brief #readonly_  represent a property_ read only attribute.
-  /// @ingroup Keywords
+  /// @ingroup keywords
 #define readonly_ \
   xtd::readonly_
 
   /// @brief #readwrite_  represent a property_ read write attribute.
-  /// @ingroup Keywords
+  /// @ingroup keywords
 #define readwrite_ \
   xtd::readwrite_ \
 
   /// @brief #writeonly_  represent a property_ write only attribute.
-  /// @ingroup Keywords
+  /// @ingroup keywords
 #define writeonly_ \
   xtd::writeonly_ \
 
@@ -213,7 +213,7 @@ namespace xtd {
   ///   std::string name;
   /// };
   /// @endcode
-  /// @ingroup Keywords
+  /// @ingroup keywords
 #define get_ \
   [&]()
 
@@ -234,7 +234,7 @@ namespace xtd {
   ///   std::string name;
   /// };
   /// @endcode
-  /// @ingroup Keywords
+  /// @ingroup keywords
 #define set_ \
   [&](const auto& value)
 }
