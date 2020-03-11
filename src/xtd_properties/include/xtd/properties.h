@@ -1,2 +1,2 @@
 #pragma once
-#error "include xtd.proterties.h instead properties.hpp"
+#error "include xtd.proterties.h instead properties.h"
