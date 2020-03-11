@@ -4,9 +4,9 @@ cmake_minimum_required(VERSION 3.3)
 project(xtd.properties VERSION 1.0.0)
 set(INCLUDES
   include/xtd/properties
-  include/xtd/properties.hpp
+  include/xtd/properties.h
   include/xtd/xtd.properties
-  include/xtd/xtd.properties.hpp
+  include/xtd/xtd.properties.h
 )
 set(SOURCES
   src/properties.cpp
