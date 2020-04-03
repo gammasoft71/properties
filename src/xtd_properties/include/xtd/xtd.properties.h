@@ -170,7 +170,13 @@ namespace xtd {
     property_(const property_& property_)  = delete;
     setter_type setter;
   };
-  /// @endcond
+
+  template<typename type_t>
+  using property_read_only_ = property_<type_t, readonly_>;
+
+  template<typename type_t>
+  using property_read_write_only_ = property_<type_t, writeonly_>;
+/// @endcond
 
   /// @brief A #property_ is a member that provides a flexible mechanism to read, write, or compute the value of a private field. Properties can be used as if they are public data members, but they are actually special methods called accessors. This enables data to be accessed easily and still helps promote the safety and flexibility of methods.
   /// @remarks The copy constructor is deleted. So the copy constructor of the owner class must be specified (the implicit or default copy contructor doesn't build).
@@ -238,6 +244,12 @@ namespace xtd {
 #define set_ \
   [&](const auto& value)
 }
+
+/// @cond
+#define property_read_only_ property_read_only_
+
+#define property_read_write_only_ property_read_write_only_
+/// @endcond
 
 /// @mainpage properties - Reference Guide
 ///
