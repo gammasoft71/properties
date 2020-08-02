@@ -6,3 +6,4 @@ build
 
 # CLion files
 .idea
+scripts/.DS_Store
