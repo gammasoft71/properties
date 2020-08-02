@@ -1,6 +1,6 @@
 [![properties picture](docs/pictures/header.png)](https://gammasoft71.wixsite.com/xtd-properties)
 
-[![Build Status](https://travis-ci.org/gammasoft71/xtd.properties.svg?branch=master)](https://travis-ci.org/gammasoft71/xtd.properties)
+[![Build Status](https://travis-ci.org/gammasoft71/xtd_properties.svg?branch=master)](https://travis-ci.org/gammasoft71/xtd_properties)
 [![Build status](https://ci.appveyor.com/api/projects/status/r3w9ojjiecp4vf8f?svg=true)](https://ci.appveyor.com/project/gammasoft71/xtd-properties)
 [![Documentation](https://codedocs.xyz/gammasoft71/xtd.properties.svg)](https://codedocs.xyz/gammasoft71/xtd.properties/)
 [![codecov](https://codecov.io/gh/gammasoft71/xtd.properties/branch/master/graph/badge.svg)](https://codecov.io/gh/gammasoft71/xtd.properties)
