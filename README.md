@@ -4,10 +4,10 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/r3w9ojjiecp4vf8f?svg=true)](https://ci.appveyor.com/project/gammasoft71/xtd-properties)
 [![Reference Guide](https://img.shields.io/badge/code-Reference_Guide-brightgreen.svg)](https://codedocs.xyz/gammasoft71/xtd_properties/)
 [![Documentation](https://img.shields.io/badge/wiki-Documentaions-brightgreen.svg)](./README.md)
-[![Website](https://img.shields.io/website-up-down-green-red/http/shields.io.svg?label=xtd.properties%20website)](https://gammasoft71.wixsite.com/xtd.properties)
+<!--- [![Try online](https://img.shields.io/badge/try-online-brightgreen.svg)](https://wandbox.org/permlink/rH8PGQU9G3Auv6va) --->
+[![Website](https://img.shields.io/badge/web-xtd.properties-brightgreen.svg)](https://gammasoft71.wixsite.com/xtd.properties)
 [![license](https://img.shields.io/github/license/gammasoft71/xtd.properties.svg)](License.md)
 [![Download properties](https://img.shields.io/sourceforge/dt/properties.svg)](https://sourceforge.net/projects/properties/files/latest/download)
-[![Try online](https://img.shields.io/badge/try-online-brightgreen.svg)](https://wandbox.org/permlink/rH8PGQU9G3Auv6va)
 <!--- [![GitHub top language](https://img.shields.io/github/languages/top/gammasoft71/xtd.properties.svg)](https://cppreference.com) --->
 <!--- [![os Windows](https://img.shields.io/badge/os-Windows-004080.svg))](README.md) --->
 <!--- [![os macOS](https://img.shields.io/badge/os-macOS-004080.svg))](README.md) --->
