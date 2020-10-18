@@ -7,14 +7,16 @@
 [![Website](https://img.shields.io/badge/web-xtd.properties-brightgreen.svg)](https://gammasoft71.wixsite.com/xtd_properties)
 [![license](https://img.shields.io/github/license/gammasoft71/xtd.properties.svg)](License.md)
 [![Download properties](https://img.shields.io/sourceforge/dt/properties.svg)](https://sourceforge.net/projects/properties/files/latest/download)
-<!--- [![Documentation](https://img.shields.io/badge/wiki-Documentaions-brightgreen.svg)](./README.md) --->
-<!--- [![GitHub top language](https://img.shields.io/github/languages/top/gammasoft71/xtd.properties.svg)](https://cppreference.com) --->
-<!--- [![os Windows](https://img.shields.io/badge/os-Windows-004080.svg))](README.md) --->
-<!--- [![os macOS](https://img.shields.io/badge/os-macOS-004080.svg))](README.md) --->
-<!--- [![os Linux](https://img.shields.io/badge/os-Linux-004080.svg))](README.md) --->
-<!--- [![os iOS](https://img.shields.io/badge/os-iOS-004080.svg))](README.md) --->
-<!--- [![os android](https://img.shields.io/badge/os-android-004080.svg))](README.md) --->
-<!--- [![codecov](https://codecov.io/gh/gammasoft71/xtd.properties/branch/master/graph/badge.svg)](https://codecov.io/gh/gammasoft71/xtd.properties) --->
+<!--- 
+[![Documentation](https://img.shields.io/badge/wiki-Documentaions-brightgreen.svg)](./README.md)
+[![GitHub top language](https://img.shields.io/github/languages/top/gammasoft71/xtd.properties.svg)](https://cppreference.com)
+[![os Windows](https://img.shields.io/badge/os-Windows-004080.svg))](README.md)
+[![os macOS](https://img.shields.io/badge/os-macOS-004080.svg))](README.md)
+[![os Linux](https://img.shields.io/badge/os-Linux-004080.svg))](README.md)
+[![os iOS](https://img.shields.io/badge/os-iOS-004080.svg))](README.md)
+[![os android](https://img.shields.io/badge/os-android-004080.svg))](README.md)
+[![codecov](https://codecov.io/gh/gammasoft71/xtd.properties/branch/master/graph/badge.svg)](https://codecov.io/gh/gammasoft71/xtd.properties)
+--->
 
 # properties
 
