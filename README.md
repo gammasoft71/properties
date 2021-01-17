@@ -2,7 +2,7 @@
 
 **another c#-like property accessor for C++11 and above.**
 
-[![properties](docs/pictures/proeprties_header.png)](https://gammasoft71.wixsite.com/properties)
+[![properties](docs/pictures/properties_header.png)](https://gammasoft71.wixsite.com/properties)
 
 ## Continuous Integration build status
 
