@@ -30,6 +30,7 @@ For more information see:
 * [markdown documentations](docs/home.md)
 * [sources](https://github.com/gammasoft71/properties)
 * [Reference Guide](https://codedocs.xyz/gammasoft71/properties/)
+* [Try it online](https://wandbox.org/permlink/aA17kJZXhJOYsTpW)
 
 ## There are three types of properties :
 
@@ -160,8 +161,13 @@ Person details - Name = N/A, Age = 0
 Person details - Name = Joe, Age = 99
 Person details - Name = Joe, Age = 100
 ```
-You can try and play this example [here](https://wandbox.org/permlink/aA17kJZXhJOYsTpW).
 
-For more examples see [examples](examples).
+## Getting Started
 
-See the online [Reference guide](https://gammasoft71.github.io/properties-doc/).
+* [Installation](docs/downloads.md) provides download and install documentation.
+* [Portability](docs/portability.md) provides information about C++, libraries dependency, Operating System suported, Compilators and Devepment Environment tools.
+* [Examples](docs/examples.md) provides some examples.
+
+______________________________________________________________________________________________
+
+© 2021 Gammasoft.
