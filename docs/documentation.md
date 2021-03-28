@@ -7,7 +7,7 @@ This section contains the delegates documentation. ​
 ## In this section
 
 * [Getting started](getting_started.md) provide getting started documentation.
-* [Reference Guide](https://codedocs.xyz/gammasoft71/delegates/) provide online user reference guide.
+* [Reference Guide](https://codedocs.xyz/gammasoft71/properties/) provide online user reference guide.
 * [Development status](development_status.md) provide information about classes development status.
 * [Release notes](release_notes.md) provide release notes information.
 * [Portability](portability.md) provide information about C++, libraries dependency, Operating System suported, Compilators and Devepment Environment tools.
