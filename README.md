@@ -25,7 +25,7 @@
 
 A property is a member that provides a flexible mechanism to read, write, or compute the value of a private field. Properties can be used as if they are public data members, but they are actually special methods called accessors. This enables data to be accessed easily and still helps promote the safety and flexibility of methods.
 
-For more information see:
+### For more information see
 * [website](https://gammasoft71.wixsite.com/properties) 
 * [markdown documentations](docs/home.md)
 * [sources](https://github.com/gammasoft71/properties)
