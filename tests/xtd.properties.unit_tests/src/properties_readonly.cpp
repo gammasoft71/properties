@@ -1,4 +1,4 @@
-#include <xtd/xtd.properties>
+#include <xtd/properties>
 #include <xtd/xtd.tunit>
 
 using namespace xtd;

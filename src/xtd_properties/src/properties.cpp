@@ -1,4 +1,4 @@
-#include "../include/xtd/xtd.properties"
+#include "../include/xtd/properties.h"
 
 void __properties__unsused__() {
 }
