@@ -54,7 +54,7 @@ namespace xtd {
     property_(const property_& property) : value(property.value) {}
     
     operator const type_t&() const {return getter();}
-    property_& operator=(const property_& property_) {setter(property_.getter()); return *this;}
+    property_& operator=(const property_& other) {setter(other.getter()); return *this;}
     bool operator==(const type_t& value) const {return getter() == value;}
     bool operator!=(const type_t& value) const {return getter() != value;}
     
@@ -105,7 +105,7 @@ namespace xtd {
     
     operator type_t() const {return getter();}
   private:
-    property_& operator=(const property_& property_) {setter(property_.getter()); return *this;}
+    property_& operator=(const property_& other) {setter(other.getter()); return *this;}
   public:
     bool operator==(const type_t& value) const {return getter() == value;}
     bool operator!=(const type_t& value) const {return getter() != value;}
@@ -138,7 +138,7 @@ namespace xtd {
     
   public:
     explicit property_(const getter_type& getter) : getter(getter) {}
-    property_& operator=(const property_& property_) {return *this;}
+    property_& operator=(const property_&) {return *this;}
     
     const type_t& get() const {return getter();}
     const type_t& operator()() const {return getter();}
@@ -150,7 +150,7 @@ namespace xtd {
     friend std::ostream& operator<<(std::ostream& os, const property_& p) {return os <<  p();}
     
   private:
-    property_(const property_& property_)  = delete;
+    property_(const property_&)  = delete;
     getter_type getter;
   };
   
@@ -160,14 +160,14 @@ namespace xtd {
     
   public:
     explicit property_(const setter_type& setter) : setter(setter) {}
-    property_& operator=(const property_& property_) {return *this;}
+    property_& operator=(const property_&) {return *this;}
     
     void set(const type_t& value) {setter(value);}
     void operator()(const type_t& value) {setter(value);}
     void operator=(const type_t& value) {setter(value);}
     
   private:
-    property_(const property_& property_)  = delete;
+    property_(const property_&)  = delete;
     setter_type setter;
   };
   
