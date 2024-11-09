@@ -30,7 +30,7 @@ A property is a member that provides a flexible mechanism to read, write, or com
 * [markdown documentations](docs/home.md)
 * [sources](https://github.com/gammasoft71/properties)
 * [Reference Guide](https://codedocs.xyz/gammasoft71/properties/)
-* [Try it online](https://wandbox.org/permlink/aA17kJZXhJOYsTpW)
+* [Try it online](https://wandbox.org/permlink/s9lUwboHrEL7CYg5)
 
 ## There are three types of properties :
 
