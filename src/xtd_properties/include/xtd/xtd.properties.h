@@ -20,7 +20,7 @@ namespace xtd {
   struct writeonly_ {};
 
   /// @cond
-  template <class T, class attribute_type = readwrite_>
+  template <class type_t, class attribute_t = readwrite_>
   class property_;
   /// @endcond
 
@@ -29,123 +29,123 @@ namespace xtd {
   /// @par Examples
   /// This sample shows a Person class that has two properties: name (std::string) and age (int). Both properties are read/write.
   /// @include person.cpp
-  template <class T>
-  class property_<T, readwrite_> : public readwrite_ {
-    using getter_type = std::function<T()>;
-    using setter_type = std::function<void(T)>;
+  template <class type_t>
+  class property_<type_t, readwrite_> : public readwrite_ {
+    using getter_type = std::function<const type_t&()>;
+    using setter_type = std::function<void(const type_t&)>;
     
   public:
     /// @brief This method is an accessor method that retrieves the value of the property_ or the indexer element.
-    T get() const {return this->getter();}
+    const type_t& get() const {return getter();}
     
     /// @brief This operator is an accessor operator that retrieves the value of the property_ or the indexer element.
-    T operator()() const {return this->getter();}
+    const type_t& operator()() const {return getter();}
     
     /// @brief This method is an accessor method that assigns the value of the property_ or the indexer element.
-    T set(T value) {this->setter(value); return this->getter();}
+    const type_t& set(const type_t& value) {setter(value); return getter();}
     
     /// @brief This operator is an accessor operator that assigns the value of the property_ or the indexer element.
-    T operator()(T value) {this->setter(value); return this->getter();}
+    const type_t& operator()(const type_t& value) {setter(value); return getter();}
     
     /// @cond
     property_() = default;
-    property_(T value) : value(value) {}
+    property_(const type_t& value) : value(value) {}
     property_(const getter_type& getter, const setter_type& setter) : getter(getter), setter(setter) {}
     property_(const property_& property) : value(property.value) {}
     
-    operator T() const {return this->getter();}
-    property_& operator=(const property_& property_) {this->setter(property_.getter()); return *this;}
-    bool operator==(T value) const {return this->getter() == value;}
-    bool operator!=(T value) const {return this->getter() != value;}
+    operator const type_t&() const {return getter();}
+    property_& operator=(const property_& property_) {setter(property_.getter()); return *this;}
+    bool operator==(const type_t& value) const {return getter() == value;}
+    bool operator!=(const type_t& value) const {return getter() != value;}
     
-    property_& operator=(T value) {this->setter(value); return *this;}
-    void operator+=(T value) {this->setter(this->getter() + value);}
-    void operator-=(T value) {this->setter(this->getter() - value);}
-    void operator*=(T value) {this->setter(this->getter() * value);}
-    void operator /=(T value) {this->setter(this->getter() / value);}
-    void operator %=(T value) {this->setter(this->getter() % value);}
-    void operator &=(T value) {this->setter(this->getter() & value);}
-    void operator |=(T value) {this->setter(this->getter() | value);}
-    void operator ^=(T value) {this->setter(this->getter() ^ value);}
-    void operator<<=(T value) {this->setter(this->getter() << value);}
-    void operator>>=(T value) {this->setter(this->getter() >> value);}
+    property_& operator=(const type_t& value) {setter(value); return *this;}
+    void operator+=(const type_t& value) {setter(getter() + value);}
+    void operator-=(const type_t& value) {setter(getter() - value);}
+    void operator*=(const type_t& value) {setter(getter() * value);}
+    void operator /=(const type_t& value) {setter(getter() / value);}
+    void operator %=(const type_t& value) {setter(getter() % value);}
+    void operator &=(const type_t& value) {setter(getter() & value);}
+    void operator |=(const type_t& value) {setter(getter() | value);}
+    void operator ^=(const type_t& value) {setter(getter() ^ value);}
+    void operator<<=(const type_t& value) {setter(getter() << value);}
+    void operator>>=(const type_t& value) {setter(getter() >> value);}
     
     friend std::ostream& operator<<(std::ostream& os, const property_& p) {return os <<  p();}
     /// @endcond
     
   private:
-    T value = T();
-    getter_type getter = [&] {return this->value;};
-    setter_type setter = [&](const T& value) {this->value = value;};
+    type_t value = type_t();
+    getter_type getter = [&] {return value;};
+    setter_type setter = [&](const type_t& value) {this->value = value;};
   };
-
+  
   /// @cond
-  template <class T, class attribute_type>
+  template <class type_t, class attribute_t>
   class property_ {
-    using getter_type = std::function<T()>;
-    using setter_type = std::function<void(T)>;
+    using getter_type = std::function<const type_t&()>;
+    using setter_type = std::function<void(const type_t&)>;
     
-    friend attribute_type;
+    friend attribute_t;
     
   public:
-    T get() const {return this->getter();}
+    const type_t& get() const {return getter();}
     
-    T operator()() const {return this->getter();}
+    const type_t& operator()() const {return getter();}
     
   private:
-    T set(T value) {this->setter(value); return this->getter();}
+    const type_t& set(const type_t& value) {setter(value); return getter();}
     
-    T operator()(T value) {this->setter(value); return this->getter();}
+    const type_t& operator()(const type_t& value) {setter(value); return getter();}
     
   public:
     property_() = default;
-    property_(T value) : value(value) {}
+    property_(const type_t& value) : value(value) {}
     property_(const getter_type& getter, const setter_type& setter) : getter(getter), setter(setter) {}
     property_(const property_& property) : value(property.value) {}
     
-    operator T() const {return this->getter();}
+    operator type_t() const {return getter();}
   private:
-    property_& operator=(const property_& property_) {this->setter(property_.getter()); return *this;}
+    property_& operator=(const property_& property_) {setter(property_.getter()); return *this;}
   public:
-    bool operator==(T value) const {return this->getter() == value;}
-    bool operator!=(T value) const {return this->getter() != value;}
+    bool operator==(const type_t& value) const {return getter() == value;}
+    bool operator!=(const type_t& value) const {return getter() != value;}
     
   private:
-    property_& operator=(T value) {this->setter(value); return *this;}
-    void operator+=(T value) {this->setter(this->getter() + value);}
-    void operator-=(T value) {this->setter(this->getter() - value);}
-    void operator*=(T value) {this->setter(this->getter() * value);}
-    void operator /=(T value) {this->setter(this->getter() / value);}
-    void operator %=(T value) {this->setter(this->getter() % value);}
-    void operator &=(T value) {this->setter(this->getter() & value);}
-    void operator |=(T value) {this->setter(this->getter() | value);}
-    void operator ^=(T value) {this->setter(this->getter() ^ value);}
-    void operator<<=(T value) {this->setter(this->getter() << value);}
-    void operator>>=(T value) {this->setter(this->getter() >> value);}
+    property_& operator=(const type_t& value) {setter(value); return *this;}
+    void operator+=(const type_t& value) {setter(getter() + value);}
+    void operator-=(const type_t& value) {setter(getter() - value);}
+    void operator*=(const type_t& value) {setter(getter() * value);}
+    void operator /=(const type_t& value) {setter(getter() / value);}
+    void operator %=(const type_t& value) {setter(getter() % value);}
+    void operator &=(const type_t& value) {setter(getter() & value);}
+    void operator |=(const type_t& value) {setter(getter() | value);}
+    void operator ^=(const type_t& value) {setter(getter() ^ value);}
+    void operator<<=(const type_t& value) {setter(getter() << value);}
+    void operator>>=(const type_t& value) {setter(getter() >> value);}
     
   public:
     friend std::ostream& operator<<(std::ostream& os, const property_& p) {return os <<  p();}
     
   private:
-    T value = T();
-    getter_type getter = [&] {return this->value;};
-    setter_type setter = [&](const T& value) {this->value = value;};
+    type_t value = type_t();
+    getter_type getter = [&] {return value;};
+    setter_type setter = [&](const type_t& value) {this->value = value;};
   };
 
-  template <class T>
-  class property_<T, readonly_> : public readonly_ {
-    using getter_type = std::function<T()>;
+  template <class type_t>
+  class property_<type_t, readonly_> : public readonly_ {
+    using getter_type = std::function<const type_t&()>;
 
   public:
     explicit property_(const getter_type& getter) : getter(getter) {}
     property_& operator=(const property_& property_) {return *this;}
 
-    T get() const {return this->getter();}
-    T operator()() const {return this->getter();}
-    operator T() const { return this->getter(); }
-    operator T() { return this->getter(); }
-    bool operator==(T value) const {return this->getter() == value;}
-    bool operator !=(T value) const {return this->getter() != value;}
+    const type_t& get() const {return getter();}
+    const type_t& operator()() const {return getter();}
+    operator type_t() const { return getter(); }
+    operator type_t() { return getter(); }
+    bool operator==(const type_t& value) const {return getter() == value;}
+    bool operator !=(const type_t& value) const {return getter() != value;}
 
     friend std::ostream& operator<<(std::ostream& os, const property_& p) {return os <<  p();}
 
@@ -154,17 +154,17 @@ namespace xtd {
     getter_type getter;
   };
 
-  template <class T>
-  class property_<T, writeonly_> : public writeonly_ {
-    using setter_type = std::function<void(T)>;
+  template <class type_t>
+  class property_<type_t, writeonly_> : public writeonly_ {
+    using setter_type = std::function<void(type_t)>;
 
   public:
     explicit property_(const setter_type& setter) : setter(setter) {}
     property_& operator=(const property_& property_) {return *this;}
 
-    void set(T value) {this->setter(value);}
-    void operator()(T value) {this->setter(value);}
-    void operator=(T value) {this->setter(value);}
+    void set(const type_t& value) {setter(value);}
+    void operator()(const type_t& value) {setter(value);}
+    void operator=(const type_t& value) {setter(value);}
 
   private:
     property_(const property_& property_)  = delete;
@@ -176,7 +176,7 @@ namespace xtd {
 
   template<typename type_t>
   using property_read_write_only_ = property_<type_t, writeonly_>;
-/// @endcond
+  /// @endcond
 
   /// @brief A #property_ is a member that provides a flexible mechanism to read, write, or compute the value of a private field. Properties can be used as if they are public data members, but they are actually special methods called accessors. This enables data to be accessed easily and still helps promote the safety and flexibility of methods.
   /// @remarks The copy constructor is deleted. So the copy constructor of the owner class must be specified (the implicit or default copy contructor doesn't build).
@@ -211,8 +211,8 @@ namespace xtd {
   ///   Person(const Person& p) : name_(p.name) {}
   ///
   ///   property_<std::string> Name {
-  ///     get_ {return this->name},
-  ///     set_ {std::transform(value.begin(), value.end(), std::back_inserter(this->name), ::toupper);}
+  ///     get_ {return name},
+  ///     set_ {std::transform(value.begin(), value.end(), std::back_inserter(name), ::toupper);}
   ///   };
   ///
   /// private:
@@ -221,8 +221,8 @@ namespace xtd {
   /// @endcode
   /// @ingroup keywords
 #define get_ \
-  [&]()
-
+  [&]() -> const auto&
+  
   /// @brief The #set_ keyword defines an accessor method in a property_ or indexer that assigns the value of the property_ or the indexer element.
   /// @par Examples
   /// @code
@@ -232,8 +232,8 @@ namespace xtd {
   ///   Person(const Person& p) : name_(p.name) {}
   ///
   ///   property_<std::string> Name {
-  ///     get_ {return this->name},
-  ///     set_ {std::transform(value.begin(), value.end(), std::back_inserter(this->name), ::toupper);}
+  ///     get_ {return name},
+  ///     set_ {std::transform(value.begin(), value.end(), std::back_inserter(name), ::toupper);}
   ///   };
   ///
   /// private:
@@ -265,54 +265,54 @@ namespace xtd {
 /// @par readwrite_
 /// The property_ accessor can be read and write.
 /// @code
-/// class Foo {
+/// class foo {
 /// public:
 ///   //...
 ///
-///   property_<int> Number {
-///     get_ {return this->number;},
-///     set_ {this->number = value;}
+///   property_<int> number {
+///     get_ {return number_;},
+///     set_ {number_ = value;}
 ///   };
 ///
 ///   //...
 ///
 /// private:
-///   int number = 0;
+///   int number_ = 0;
 /// };
 /// @endcode
 ///
 /// @par readonly_
 /// The property_ accessor can be read only.
 /// @code
-/// class Foo {
+/// class foo {
 /// public:
 ///   //...
 ///
-///   property_<int, readonly_> Number {
-///     get_ {return this->number;}
+///   property_<int, readonly_> number {
+///     get_ {return number_;}
 ///   };
 ///
 ///   //...
 ///
 /// private:
-///   int number = 0;
+///   int number_ = 0;
 /// };
 /// @endcode
 ///
 /// @par writeonly_
 /// The property_ accessor can be write only.
 /// @code
-/// class Foo {
+/// class foo {
 /// public:
 ///   //...
 ///
-///   property_<int, writeonly_> Number {
-///     set_ {this->number = value;}
+///   property_<int, writeonly_> number {
+///     set_ {number_ = value;}
 ///   };
 ///
 ///   //...
 ///
 /// private:
-///   int number = 0;
+///   int number_ = 0;
 /// };
 /// @endcode
